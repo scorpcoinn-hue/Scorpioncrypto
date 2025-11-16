@@ -1,436 +1,116 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Scorpion Crypto</title>
-  <meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution. Join our community and discover the tokenomics and roadmap.">
-  <link rel="icon" href="SmartSelect_20251028_161329_Grok.png">
+<style>
 
-  <style>
-    :root{
-      --gold: #d4af37;
-      --gold-2: #c9a63b;
-      --muted: #bdbdbd;
-      --max-w: 1100px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#fff;
-      background:#000;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+/* NGJYRAT */
+:root {
+    --oro: #d4af37;
+}
 
-    /* Header / Hero */
-    header.hero{
-      min-height: 56vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:48px 20px;
-      background-image: url('header-bg.png'), linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95));
-      background-size: cover;
-      background-position: center;
-      position:relative;
-    }
-    /* fallback if header-bg.png missing - use subtle pattern via gradient overlay */
-    @supports (background-image: linear-gradient(red, blue)) {
-      header.hero { background-blend-mode: overlay; }
-    }
+/* BACKGROUND GJENERAL */
+body {
+    background: linear-gradient(180deg, #000000 0%, #1a1a1a 40%, #d4af37 100%);
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
 
-    .hero-inner{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding: 40px 20px;
-    }
-    .logo {
-      display:block;
-      margin:0 auto 18px;
-      width:180px;
-      max-width:40%;
-      border-radius:16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.06);
-      filter: drop-shadow(0 0 18px rgba(212,175,55,0.18));
-      animation: heroFade 900ms ease both;
-    }
-    @keyframes heroFade { from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:none} }
+/* INTESTAZIONE / HERO */
+intestazione.erore {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
 
-    h1{
-      margin:0;
-      color:var(--gold);
-      font-size:2.25rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
-    p.lead{
-      color:var(--muted);
-      margin:14px 0 18px;
-      font-size:1rem;
-    }
-    .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
-    .btn {
-      display:inline-block;
-      padding:11px 18px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      min-width:160px;
-      text-align:center;
-    }
-    .btn-primary{
-      background: linear-gradient(90deg, var(--gold), var(--gold-2));
-      color:#000;
-      box-shadow: 0 8px 24px rgba(212,175,55,0.18);
-    }
-    .btn-ghost{
-      background:transparent;
-      border:1px solid rgba(212,175,55,0.18);
-      color:var(--gold);
-    }
+.eroe.interior {
+    max-width: 900px;
+    margin: auto;
+}
 
-    /* Main content */
-    main{ padding:48px 20px; max-width:var(--max-w); margin:0 auto; }
-    section{ margin-bottom:48px; }
-    h2{ color:var(--gold); font-size:1.4rem; margin-bottom:12px; display:inline-block; border-bottom:2px solid var(--gold); padding-bottom:6px; }
-    .muted{ color:var(--muted); line-height:1.6; }
+.logo {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+}
 
-    /* Tokenomics table */
-    .tokenomics table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:12px;
-      background:transparent;
-    }
-    .tokenomics th, .tokenomics td{
-      padding:12px 10px;
-      border:1px solid rgba(212,175,55,0.12);
-      text-align:left;
-    }
-    .tokenomics th{ background:#070707; color:var(--gold); font-weight:600; }
+h1 {
+    color: var(--oro);
+    font-size: 2.5rem;
+}
 
-    /* Roadmap */
-    .roadmap .step{ padding:12px 14px; border-left:4px solid rgba(212,175,55,0.12); margin-bottom:12px; background:#040404; border-radius:6px; }
+p.Guida {
+    color: #ccc;
+    font-size: 1.2rem;
+}
 
-    /* Community area */
-    .community{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center; margin-top:8px; }
-    .social {
-      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; background:rgba(212,175,55,0.12);
-      color: #000; text-decoration:none; font-weight:600;
-    }
+/* BUTONET */
+.cta-row {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 
-    footer{ padding:28px 20px; text-align:center; color:#8b8b8b; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.02); margin-top:30px; }
+.btn-primario {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #d4af37, #b1882f);
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-    /* Responsive */<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Scorpion Crypto — Full Platform</title>
-  <meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution. Full site with tokenomics, roadmap, live price, staking UI (demo) and dashboard."/>
-  <link rel="icon" href="favicon.png">
+.btn-fantasma {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--oro);
+    background: transparent;
+    color: var(--oro);
+    text-decoration: none;
+}
 
-  <style>
-    :root{ --gold:#d4af37; --gold-2:#c9a63b; --muted:#bdbdbd; --bg:#000; --card:#0b0b0b; --glass: rgba(255,255,255,0.03); --max:1200px; }
-    *{box-sizing:border-box}
-    html,body{height:100%;}
-    body{margin:0;font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:#fff; -webkit-font-smoothing:antialiased;}
+/* SEKSIONET */
+sezione {
+    margin: 60px auto;
+    max-width: 900px;
+    padding: 0 20px;
+}
 
-    /* header */
-    header.hero{min-height:60vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:48px 16px; background-image: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95)); background-size:cover;}
-    .hero-inner{max-width:var(--max); margin:0 auto; padding:24px;}
-    .logo{width:140px; height:140px; border-radius:50%; object-fit:cover; border:4px solid rgba(212,175,55,0.06); box-shadow:0 12px 36px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.08);}
-    h1{color:var(--gold); font-size:2.4rem; margin:12px 0 8px; letter-spacing:1px; text-transform:uppercase}
-    p.lead{color:var(--muted); margin:0 auto 18px; max-width:780px}
-    .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-    .btn{padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;min-width:140px}
-    .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2)); color:#000}
-    .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12); color:var(--gold)}
+h2 {
+    color: var(--oro);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
 
-    /* layout */
-    main{max-width:var(--max); margin:40px auto; padding:0 16px}
-    section{margin-bottom:44px}
-    h2{color:var(--gold); font-size:1.2rem; display:inline-block; border-bottom:2px solid var(--gold); padding-bottom:6px}
-    .muted{color:var(--muted)}
+/* TABELA TOKENOMICS */
+.tokenomica table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-    /* grid */
-    .grid{display:grid; grid-template-columns:1fr; gap:20px}
-    @media(min-width:900px){ .grid{grid-template-columns: 2fr 1fr} }
+.tokenomica th {
+    background: #111;
+    border: 1px solid var(--oro);
+    padding: 12px;
+    text-align: left;
+    color: var(--oro);
+}
 
-    /* cards */
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); padding:18px; border-radius:12px}
-    .small{font-size:0.9rem}
+.tokenomica td {
+    background: #222;
+    border: 1px solid var(--oro);
+    padding: 10px;
+    color: #eee;
+}
 
-    /* tokenomics table */
-    table{width:100%; border-collapse:collapse; margin-top:12px}
-    th,td{padding:10px; border:1px solid rgba(255,255,255,0.03); text-align:left}
-    th{background:#070707; color:var(--gold)}
+/* FOOTER */
+piè-di-pagina {
+    padding: 25px 20px;
+    text-align: center;
+    color: #aaa;
+}
 
-    /* roadmap */
-    .roadmap .step{padding:12px 14px; border-left:4px solid rgba(212,175,55,0.08); margin-bottom:12px; background:#070707; border-radius:8px}
-
-    /* community */
-    .community{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
-    .social{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; background:rgba(212,175,55,0.12); color:#000; text-decoration:none}
-
-    /* live price widget */
-    .price {font-size:1.4rem; font-weight:700; color:var(--gold)}
-    .price-change.positive{color:#22c55e}
-    .price-change.negative{color:#ef4444}
-
-    /* staking / dashboard demo */
-    .form-row{display:flex; gap:8px; margin-top:12px}
-    .input, .select{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit}
-    .input{flex:1}
-    .small-note{color:#9a9a9a;font-size:0.9rem}
-
-    /* animations */
-    .fade-in{animation:fadeIn .7s ease both}
-    @keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
-
-    /* footer */
-    footer{padding:28px 16px; text-align:center; color:#8b8b8b; border-top:1px solid rgba(255,255,255,0.02)}
-
-    /* responsive tweaks */
-    @media(max-width:520px){ h1{font-size:1.6rem} .logo{width:110px;height:110px} }
-  </style>
-</head>
-<body>
-  <!-- HERO -->
-  <header class="hero" role="banner">
-    <div class="hero-inner">
-      <img class="logo" src="https://github.com/scorpcoinn-hue/Scorpioncrypto/raw/main/SmartSelect_20251028_161329_Grok.png" alt="Scorpion logo"/>
-      <h1>Scorpion Crypto</h1>
-      <p class="lead">Power. Precision. Blockchain Evolution. Built for community and designed for endurance.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
-        <a class="btn btn-ghost" href="#dashboard">Dashboard (Demo)</a>
-        <a class="btn btn-ghost" href="#whitepaper">Whitepaper</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="grid">
-      <div>
-        <!-- About -->
-        <section id="about">
-          <h2>About</h2>
-          <p class="muted">Scorpion Crypto is a next-generation blockchain ecosystem focused on security, ultra-fast execution, and sustainable tokenomics. Our mission is to deliver tools and infrastructure for a decentralized financial future.</p>
-        </section>
-        <!-- Tokenomics -->
-        <section id="tokenomics" class="card fade-in">
-          <h2>Tokenomics</h2>
-          <p class="muted">A fair and transparent distribution model to encourage long-term community alignment.</p>
-          <table role="table" aria-label="Tokenomics table">
-            <thead><tr><th>Category</th><th>Allocation</th></tr></thead>
-            <tbody>
-              <tr><td>Community & Staking</td><td>40%</td></tr>
-              <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
-              <tr><td>Initial Liquidity</td><td>20%</td></tr>
-              <tr><td>Reserve & Development</td><td>15%</td></tr>
-            </tbody>
-          </table>
-          <p class="small-note">Total supply: <strong>1,000,000,000</strong> tokens. Vesting schedules and governance details will be published in the whitepaper.</p>
-        </section>
-
-        <!-- Roadmap -->
-        <section id="roadmap" class="fade-in">
-          <h2>Roadmap</h2>
-          <div class="roadmap">
-            <div class="step"><strong>Q1:</strong> Foundation, smart-contract design, security plan.</div>
-            <div class="step"><strong>Q2:</strong> Token launch, initial liquidity, community programs.</div>
-            <div class="step"><strong>Q3:</strong> DeFi integrations, audits, exchange listings.</div>
-            <div class="step"><strong>Q4:</strong> Governance, partnerships, global expansion.</div>
-          </div>
-        </section>
-
-        <!-- Whitepaper -->
-        <section id="whitepaper" class="card fade-in">
-          <h2>Whitepaper</h2>
-          <p class="muted">A technical whitepaper detailing token mechanics, governance, and protocol architecture will be published soon. Downloadable PDF and sectioned articles will appear here.</p>
-          <p><a class="btn btn-ghost" href="#" onclick="alert('Whitepaper will be uploaded soon'); return false;">Download (coming)</a></p>
-        </section>
-      </div>
-
-      <aside>
-        <!-- Live price widget -->
-        <section class="card" aria-label="Live price">
-          <h2>Live Price</h2>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-            <div>
-              <div class="price" id="live-price">--</div>
-              <div id="price-change" class="price-change small muted">--</div>
-            </div>
-            <div style="text-align:right">
-              <div class="muted">Market Cap</div>
-              <div id="market-cap" class="small muted">--</div>
-            </div>
-          </div>
-          <p class="small-note">Prices are fetched via CoinGecko (demo). Replace with real contract/market feed for production.</p>
-        </section>
-
-        <!-- Dashboard / staking demo -->
-        <section id="dashboard" class="card fade-in">
-          <h2>Dashboard (Demo)</h2>
-          <p class="muted">Demo staking and wallet interface (mock). This is a front-end only UI — for actual staking integrate smart contracts and wallets (MetaMask).</p>
-
-          <div>
-            <label class="small muted">Wallet connect (demo)</label>
-            <div style="display:flex;gap:8px;margin-top:8px">
-              <button class="btn btn-ghost" onclick="alert('Connect wallet demo — integrate Web3 provider for real use')">Connect Wallet</button>
-              <button class="btn btn-ghost" onclick="alert('Balance demo: 0 SCORP')">Show Balance</button>
-            </div>
-
-            <div style="margin-top:12px">
-              <label class="small muted">Stake (demo)</label>
-              <div class="form-row">
-                <input class="input" id="stake-amount" placeholder="Amount to stake" />
-                <button class="btn btn-primary" onclick="demoStake()">Stake</button>
-              </div>
-              <p id="stake-result" class="small-note">Staking is demo-only here.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Join community -->
-        <section class="card fade-in">
-          <h2>Join Community</h2>
-          <p class="muted">Follow updates and announcements.</p>
-          <div class="community">
-            <a class="social" href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer">Follow on X</a>
-            <a class="social" href="#" onclick="alert('Discord link coming soon');return false;">Join Discord</a>
-          </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="card fade-in">
-          <h2>FAQ</h2>
-          <div class="faq-item"><strong>How to buy?</strong><div class="muted">Links to DEX/AMM will be added after listing.</div></div>
-          <div class="faq-item"><strong>Is there an audit?</strong><div class="muted">Audits planned before listings.</div></div>
-        </section>
-      </aside>
-    </div>
-  </main>
-
-  <footer>
-    © 2025 Scorpion Crypto · Built for the community. · <a href="#" style="color:var(--gold)">Privacy</a>
-  </footer>
-
-  <script>
-    // DEMO: fetch price from CoinGecko for a placeholder token (use real contract mapping in production)
-    async function fetchDemoPrice(){
-      try{
-        // This uses CoinGecko's simple API for demonstration. Replace with real token ID or on-chain feed.
-        const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin');
-        const data = await res.json();
-        if(data && data[0]){
-          const price = data[0].current_price;
-          const change = data[0].price_change_percentage_24h;
-          const marketCap = data[0].market_cap;
-          document.getElementById('live-price').textContent = '$' + Number(price).toLocaleString();
-          const pc = document.getElementById('price-change');
-          pc.textContent = (change>0?'+':'') + change.toFixed(2) + '% (24h)';
-          pc.className = 'price-change ' + (change>=0? 'positive':'negative');
-          document.getElementById('market-cap').textContent = '$' + Number(marketCap).toLocaleString();
-        }
-      }catch(e){ console.error(e); }
-    }
-    fetchDemoPrice();
-    setInterval(fetchDemoPrice, 60*1000); // refresh every minute
-
-    // Demo staking (front-end only)
-    function demoStake(){
-      const amt = document.getElementById('stake-amount').value;
-      if(!amt || isNaN(amt) || Number(amt)<=0){ alert('Enter a valid amount'); return; }
-      document.getElementById('stake-result').textContent = 'You staked ' + amt + ' SCORP (demo). Smart-contract integration needed for real staking.';
-    }
-  </script>
-</body>
-</html>
-    @media (min-width:900px){
-      .hero-inner{ padding: 80px 20px; }
-      h1{ font-size:3rem; }
-      .logo{ width:200px; max-width:240px; border-radius:20px; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Scorpion Crypto header">
-    <div class="hero-inner">
-      <img class="logo" src="SmartSelect_20251028_161329_Grok.png" alt="Scorpion Crypto logo">
-      <h1>Scorpion Crypto</h1>
-      <p class="lead">Power. Precision. Blockchain Evolution.</p>
-
-      <div class="cta-row" role="navigation" aria-label="Primary calls to action">
-        <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
-        <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn?t=BDFaC0jaAUU5wBr4Y-KBRg&s=09" target="_blank" rel="noopener noreferrer">Follow on X</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About Scorpion</h2>
-      <p class="muted">Scorpion Crypto is a forward-looking blockchain project focused on delivering speed, security and protocol-level transparency. Built for the community and engineered for resilience, Scorpion aims to provide sustainable tokenomics, seamless DeFi integrations and an ecosystem that scales worldwide.</p>
-    </section>
-
-    <!-- TOKENOMICS -->
-    <section id="tokenomics" class="tokenomics" aria-labelledby="tokenomics-title">
-      <h2 id="tokenomics-title">Tokenomics</h2>
-      <p class="muted">The token model is designed for long-term growth and fair distribution across the community, team, liquidity and development reserves.</p>
-
-      <table role="table" aria-label="Tokenomics table">
-        <thead>
-          <tr><th scope="col">Category</th><th scope="col">Allocation</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Community & Staking</td><td>40%</td></tr>
-          <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
-          <tr><td>Initial Liquidity</td><td>20%</td></tr>
-          <tr><td>Reserve & Development</td><td>15%</td></tr>
-        </tbody>
-      </table>
-
-      <p class="muted" style="margin-top:12px;">Total supply: 1,000,000,000 (1 billion). Further details, vesting schedule and governance parameters will be published in the whitepaper.</p>
-    </section>
-
-    <!-- ROADMAP -->
-    <section id="roadmap" class="roadmap" aria-labelledby="roadmap-title">
-      <h2 id="roadmap-title">Roadmap</h2>
-      <div class="step"><strong>Q1:</strong> Project foundation, team assembly, whitepaper drafting.</div>
-      <div class="step"><strong>Q2:</strong> Token launch, initial liquidity, community growth.</div>
-      <div class="step"><strong>Q3:</strong> Integrations with DeFi platforms, security audits, listing strategy.</div>
-      <div class="step"><strong>Q4:</strong> Global partnerships, scaling the ecosystem, governance rollout.</div>
-    </section>
-
-    <!-- COMMUNITY / CONTACT -->
-    <section id="community" aria-labelledby="community-title">
-      <h2 id="community-title">Join the Community</h2>
-      <p class="muted">Connect with us for updates, airdrops and governance. Follow the official channel and join the discussion.</p>
-
-      <div class="community" role="group" aria-label="Community links">
-        <a class="social" href="https://x.com/Scorpioncoinn?t=BDFaC0jaAUU5wBr4Y-KBRg&s=09" target="_blank" rel="noopener noreferrer">
-          <!-- simple X icon inline SVG -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right:6px"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9.02 9.02 0 0 1-2.84 1.08A4.52 4.52 0 0 0 12.41 5.5a12.84 12.84 0 0 1-9.3-4.7 4.48 4.48 0 0 0 1.4 6.02A4.48 4.48 0 0 1 2 6.9v.06A4.52 4.52 0 0 0 4.5 11.4a4.52 4.52 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.12A9.06 9.06 0 0 1 1 19.54 12.84 12.84 0 0 0 8.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18 0-.35-.01-.53A8.18 8.18 0 0 0 23 3z" fill="#000"/></svg>
-          Follow us on X
-        </a>
-
-        <!-- placeholder for future channels -->
-        <a class="social" href="#" onclick="alert('Telegram/Discord link coming soon');return false;">Join Discord (coming)</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Scorpion Crypto · Built for the community.
-  </footer>
-
-</body>
-</html>
+</style>
