@@ -1,110 +1,269 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ScorpionCrypto</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ScorpionCrypto — Official</title>
+<meta name="description" content="ScorpionCrypto — Power. Precision. Blockchain Evolution.">
+<link rel="icon" href="logo.png">
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background: radial-gradient(circle at center, #000000, #050505, #000000);
-        color: #f6d14c;
-        text-align: center;
-    }
+  :root{
+    --gold:#d4af37;
+    --gold-2:#c9a63b;
+    --bg-1:#050505;
+    --muted:#cbbf8a;
+    --glass: rgba(255,255,255,0.03);
+    --max:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-1) 0%, #0d0d0d 60%);color:#fff;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold);text-decoration:none}
 
-    /* NAVBAR */
-    nav {
-        padding: 20px 0;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    nav a {
-        color: #f6d14c;
-        text-decoration: none;
-        margin: 0 20px;
-        transition: 0.3s;
-    }
-    nav a:hover {
-        color: white;
-    }
+  /* NAV */
+  header.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.15));backdrop-filter:blur(6px);box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+  .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px}
+  .brand{display:flex;gap:12px;align-items:center}
+  .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(212,175,55,0.12)}
+  .brand h4{margin:0;color:var(--gold);letter-spacing:1px;font-size:1.05rem}
+  nav.primary{display:flex;gap:16px;align-items:center}
+  nav.primary a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--gold)}
+  nav.primary a:hover{background:rgba(212,175,55,0.07);color:#fff}
+  .menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;color:var(--gold);}
 
-    /* HERO */
-    .logo {
-        margin-top: 40px;
-        width: 260px;
-        height: 260px;
-        object-fit: contain;
-        border-radius: 50%;
-        filter: drop-shadow(0 0 25px #bd9b20);
-    }
+  /* HERO */
+  .hero{min-height:88vh;display:flex;align-items:center;justify-content:center;padding-top:70px;text-align:center}
+  .hero-inner{max-width:980px;margin:0 auto;padding:32px}
+  .logo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid rgba(212,175,55,0.06);box-shadow:0 30px 60px rgba(0,0,0,0.6),0 0 48px rgba(212,175,55,0.06);background:#000;display:inline-block}
+  h1.title{color:var(--gold);font-size:2.8rem;margin:18px 0 8px;letter-spacing:2px;text-transform:uppercase}
+  p.lead{color:var(--muted);font-size:1.05rem;max-width:760px;margin:0 auto}
 
-    h1 {
-        font-size: 55px;
-        letter-spacing: 3px;
-        margin-top: 20px;
-        text-shadow: 0 0 25px #b8941c;
-    }
+  .cta-row{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:12px 20px;border-radius:12px;font-weight:700;min-width:150px;border:0;cursor:pointer}
+  .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#000}
+  .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--gold)}
 
-    p.subtitle {
-        font-size: 20px;
-        width: 80%;
-        margin: auto;
-        margin-top: 10px;
-        opacity: 0.9;
-    }
+  /* MAIN */
+  main{max-width:var(--max);margin:40px auto;padding:20px}
+  section{margin-bottom:48px}
+  h2.section-title{color:var(--gold);font-size:1.6rem;display:inline-block;border-bottom:2px solid var(--gold);padding-bottom:6px}
+  p.muted{color:var(--muted);line-height:1.6}
 
-    /* BUTTONS */
-    .btn {
-        display: inline-block;
-        margin-top: 25px;
-        margin-bottom: 10px;
-        padding: 15px 40px;
-        font-size: 20px;
-        font-weight: bold;
-        border-radius: 12px;
-        border: 2px solid #f6d14c;
-        color: #000;
-        background-color: #f6d14c;
-        transition: 0.3s;
-        cursor: pointer;
-        text-decoration: none;
-    }
-    .btn:hover {
-        background-color: #000;
-        color: #f6d14c;
-    }
+  /* tokenomics */
+  .token-table{width:100%;border-collapse:collapse;margin-top:12px}
+  .token-table th,.token-table td{padding:12px;border:1px solid rgba(255,255,255,0.03);text-align:left}
+  .token-table th{background:#0b0b0b;color:var(--gold)}
+
+  /* roadmap */
+  .roadmap .item{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:14px;border-left:4px solid rgba(212,175,55,0.12);border-radius:8px;margin-bottom:12px}
+
+  /* team */
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .team-card{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;text-align:center}
+  .team-card img{width:84px;height:84px;border-radius:50%;object-fit:cover;margin-bottom:10px}
+
+  /* faq */
+  details{background:#070707;padding:12px;border-radius:10px;margin-bottom:10px;border:1px solid rgba(255,255,255,0.03)}
+  summary{cursor:pointer;font-weight:700}
+
+  /* small widgets */
+  .row{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:900px){ .row{grid-template-columns:2fr 1fr} }
+
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+  /* footer */
+  footer.site-footer{text-align:center;padding:28px;color:#bfb391;border-top:1px solid rgba(255,255,255,0.02);margin-top:30px}
+
+  /* responsive */
+  @media(max-width:900px){
+    nav.primary{display:none}
+    .menu-btn{display:inline-block}
+    .hero{padding-top:90px}
+  }
+
+  /* smooth scroll */
+  html{scroll-behavior:smooth}
 </style>
-
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <a href="#">About</a>
-    <a href="#">Tokenomics</a>
-    <a href="#">Roadmap</a>
-    <a href="#">Whitepaper</a>
-    <a href="#">Team</a>
-    <a href="#">FAQ</a>
-    <a href="https://x.com/ScorpionCoin" target="_blank">X (Twitter)</a>
-</nav>
+<!-- HEADER / NAV -->
+<header class="site-header" role="banner">
+  <div class="nav-inner">
+    <div class="brand" aria-hidden="false">
+      <img src="logo.png" alt="Scorpion logo">
+      <h4>ScorpionCrypto</h4>
+    </div>
 
-<!-- HERO SECTION -->
-<img src="logo.png" alt="ScorpionCrypto Logo" class="logo">
+    <nav class="primary" role="navigation" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a href="#community">Community</a>
+      <a href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer">X</a>
+    </nav>
 
-<h1>SCORPIONCRYPTO</h1>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMenu()">Menu</button>
+  </div>
+</header>
 
-<p class="subtitle">
-    Power. Precision. Blockchain evolution — designed for the community, built to last.
-</p>
+<!-- HERO -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-inner">
+    <img class="logo" src="logo.png" alt="Scorpion logo">
+    <h1 class="title">SCORPION CRYPTO</h1>
+    <p class="lead">Power. Precision. Blockchain Evolution — built for the community and engineered for longevity.</p>
 
-<!-- BUTTONS -->
-<a class="btn" href="#">View Tokenomics</a><br>
-<a class="btn" href="#">See Roadmap</a><br>
-<a class="btn" href="https://x.com/ScorpionCoin" target="_blank">Follow on X</a>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
+      <button class="btn btn-ghost" onclick="openWhitepaper()">Whitepaper</button>
+      <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn" target="_blank">Follow on X</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main>
+
+  <section id="about" class="card" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">About</h2>
+    <p class="muted">ScorpionCrypto is a next-generation blockchain ecosystem — speed, security and transparent tokenomics at its core. We focus on community-first distribution, on-chain utility and sustainable growth.</p>
+  </section>
+
+  <section id="tokenomics" class="card" aria-labelledby="tokenomics-title">
+    <h2 id="tokenomics-title" class="section-title">Tokenomics</h2>
+    <p class="muted">Designed to reward community and long-term holders while ensuring liquidity and steady development funding.</p>
+
+    <table class="token-table" role="table" aria-label="Tokenomics">
+      <thead><tr><th>Category</th><th>Allocation</th></tr></thead>
+      <tbody>
+        <tr><td>Community & Staking</td><td>40%</td></tr>
+        <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
+        <tr><td>Initial Liquidity</td><td>20%</td></tr>
+        <tr><td>Reserve & Development</td><td>15%</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:12px;color:#dcd3a1">Total supply: <strong>1,000,000,000</strong> SCORP — full vesting schedule in the whitepaper.</p>
+  </section>
+
+  <section id="roadmap" class="card" aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title" class="section-title">Roadmap</h2>
+    <div class="roadmap">
+      <div class="item"><strong>Q1:</strong> Project foundation, smart contract design, website & community build.</div>
+      <div class="item"><strong>Q2:</strong> Token launch, liquidity, initial listings & marketing pushes.</div>
+      <div class="item"><strong>Q3:</strong> Integrations (DEX/CEX), audits, staking UI & partnerships.</div>
+      <div class="item"><strong>Q4:</strong> Governance launch, ecosystem expansion, global outreach.</div>
+    </div>
+  </section>
+
+  <div class="row">
+    <div>
+      <section id="team" class="card" aria-labelledby="team-title">
+        <h2 id="team-title" class="section-title">Team</h2>
+        <p class="muted">Core contributors and advisors — public or pseudonymous depending on privacy needs.</p>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="logo.png" alt="Founder">
+            <h3>Founder</h3>
+            <div class="muted">Vision & strategy</div>
+          </div>
+          <div class="team-card">
+            <img src="logo.png" alt="Developer">
+            <h3>Lead Developer</h3>
+            <div class="muted">Smart contracts & integrations</div>
+          </div>
+          <div class="team-card">
+            <img src="logo.png" alt="Marketing">
+            <h3>Marketing Lead</h3>
+            <div class="muted">Growth & partnerships</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="card" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title">FAQ</h2>
+        <details open><summary>What is ScorpionCrypto?</summary><p>ScorpionCrypto is a community-first token focused on transparency, fairness and utility-driven growth.</p></details>
+        <details><summary>How to buy?</summary><p>Buying instructions will be published after token deployment — always verify the contract address in official channels.</p></details>
+        <details><summary>Is there an audit?</summary><p>Audits will be performed prior to major listings and published publicly.</p></details>
+      </section>
+    </div>
+
+    <aside>
+      <section class="card" aria-labelledby="live-title">
+        <h2 id="live-title" class="section-title">Live Price (demo)</h2>
+        <div id="price" style="font-size:1.6rem;font-weight:700;color:var(--gold)">--</div>
+        <div id="price-change" style="margin-top:6px;color:#9bdc9b">--</div>
+        <p class="muted" style="margin-top:8px">Demo price is fetched from CoinGecko for illustration — replace with token feed for production.</p>
+      </section>
+
+      <section class="card" id="community" aria-labelledby="community-title">
+        <h2 id="community-title" class="section-title">Community</h2>
+        <p class="muted">Follow our official channels for announcements and support.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px">
+          <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn" target="_blank">X</a>
+          <a class="btn btn-ghost" href="#" onclick="alert('Telegram link coming soon')">Telegram</a>
+          <a class="btn btn-ghost" href="#" onclick="alert('Discord link coming soon')">Discord</a>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  © 2025 ScorpionCrypto · <a href="whitepaper.html">Whitepaper</a> · <a href="faq.html">FAQ</a>
+</footer>
+
+<!-- Whitepaper Modal (simple) -->
+<div id="whitepaper-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:2000">
+  <div style="background:#0b0b0b;padding:20px;border-radius:12px;max-width:760px;margin:20px;color:#fff;text-align:left">
+    <h3 style="color:var(--gold)">ScorpionCrypto — Whitepaper (preview)</h3>
+    <p style="color:#dcd3a1">This is a placeholder. Upload a PDF to your repo and link here, or replace this content with the full whitepaper text.</p>
+    <p><strong>Tokenomics:</strong> Total supply 1,000,000,000 — Community 40% — Team 25% (vested) — Liquidity 20% — Reserve 15%.</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+      <a class="btn btn-primary" href="#" onclick="downloadPDF()">Download PDF</a>
+      <button class="btn btn-ghost" onclick="closeWhitepaper()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle (simple)
+  function toggleMenu(){
+    const nav = document.querySelector('nav.primary');
+    const btn = document.querySelector('.menu-btn');
+    if(nav.style.display === 'flex'){ nav.style.display = ''; btn.setAttribute('aria-expanded','false'); }
+    else { nav.style.display = 'flex'; btn.setAttribute('aria-expanded','true'); nav.style.flexDirection = 'column'; nav.style.gap='8px'; nav.style.padding='12px'; }
+  }
+
+  // Whitepaper modal
+  function openWhitepaper(){ document.getElementById('whitepaper-modal').style.display = 'flex'; }
+  function closeWhitepaper(){ document.getElementById('whitepaper-modal').style.display = 'none'; }
+  function downloadPDF(){ alert('Whitepaper download placeholder — upload PDF and replace link'); }
+
+  // Demo: fetch BTC price from CoinGecko to show dynamic widget (illustration)
+  async function fetchDemoPrice(){
+    try{
+      const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin');
+      const d = await res.json();
+      if(d && d[0]){
+        document.getElementById('price').textContent = '$' + Number(d[0].current_price).toLocaleString();
+        const ch = d[0].price_change_percentage_24h;
+        const el = document.getElementById('price-change');
+        el.textContent = (ch>=0?'+':'') + ch.toFixed(2) + '% (24h)';
+        el.style.color = ch>=0? '#9bdc9b' : '#ff8a8a';
+      }
+    }catch(e){ console.warn(e) }
+  }
+  fetchDemoPrice();
+  setInterval(fetchDemoPrice,60000);
+</script>
 
 </body>
 </html>
