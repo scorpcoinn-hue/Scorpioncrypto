@@ -1,116 +1,122 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scorpion Crypto</title>
 
-/* NGJYRAT */
-:root {
-    --oro: #d4af37;
-}
+    <style>
+        /* BACKGROUND */
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background: linear-gradient(180deg, #000000, #1a1a1a, #b8962e);
+            background-attachment: fixed;
+            color:white;
+            text-align:center;
+        }
 
-/* BACKGROUND GJENERAL */
-body {
-    background: linear-gradient(180deg, #000000 0%, #1a1a1a 40%, #d4af37 100%);
-    background-attachment: fixed;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #fff;
-}
+        /* LOGO */
+        .logo{
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            object-fit:cover;
+            margin-top:50px;
+            box-shadow:0 0 25px gold;
+        }
 
-/* INTESTAZIONE / HERO */
-intestazione.erore {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-}
+        /* TITULLI */
+        h1{
+            font-size:3rem;
+            margin-top:25px;
+            color:#d4af37;
+            text-shadow:0 0 20px black;
+        }
 
-.eroe.interior {
-    max-width: 900px;
-    margin: auto;
-}
+        p{
+            font-size:1.2rem;
+            opacity:0.9;
+        }
 
-.logo {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 20px;
-}
+        /* CONTAINER SECTIONS */
+        .section{
+            margin-top:60px;
+            padding:20px;
+            max-width:900px;
+            margin-left:auto;
+            margin-right:auto;
+            background:rgba(0,0,0,0.4);
+            border-radius:20px;
+            box-shadow:0 0 25px rgba(255,215,0,0.2);
+        }
 
-h1 {
-    color: var(--oro);
-    font-size: 2.5rem;
-}
+        /* BUTTONS */
+        .btn{
+            display:inline-block;
+            margin-top:25px;
+            padding:15px 35px;
+            font-size:1.2rem;
+            border-radius:50px;
+            border:none;
+            cursor:pointer;
+            background:gold;
+            color:black;
+            font-weight:bold;
+            box-shadow:0 0 15px rgba(255,215,0,0.6);
+            transition:0.3s;
+            text-decoration:none;
+        }
+        .btn:hover{
+            transform:scale(1.08);
+            box-shadow:0 0 25px gold;
+        }
 
-p.Guida {
-    color: #ccc;
-    font-size: 1.2rem;
-}
+        footer{
+            margin-top:80px;
+            padding:25px;
+            font-size:0.9rem;
+            opacity:0.5;
+        }
+    </style>
+</head>
 
-/* BUTONET */
-.cta-row {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
+<body>
 
-.btn-primario {
-    padding: 10px 20px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #d4af37, #b1882f);
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-}
+    <!-- LOGO -->
+    <img src="logo.png" class="logo" alt="Scorpion Crypto Logo">
 
-.btn-fantasma {
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid var(--oro);
-    background: transparent;
-    color: var(--oro);
-    text-decoration: none;
-}
+    <!-- TITULLI -->
+    <h1>SCORPION CRYPTO</h1>
+    <p>Fuqi. Shpejtësi. Saktësi në botën e Blockchain.</p>
 
-/* SEKSIONET */
-sezione {
-    margin: 60px auto;
-    max-width: 900px;
-    padding: 0 20px;
-}
+    <!-- INFORMACION -->
+    <div class="section">
+        <h2 style="color:gold;">Rreth Scorpion Crypto</h2>
+        <p>
+            Scorpion Crypto është një projekt inovativ i krijuar për të sjellë transparencë,
+            shpejtësi dhe siguri maksimale në ekosistemin e kriptovalutave.
+        </p>
+        <p>
+            Projekti synon të ndërtojë një komunitet të fortë dhe një ekonomi të qëndrueshme,
+            duke përdorur teknologji moderne blockchain.
+        </p>
+    </div>
 
-h2 {
-    color: var(--oro);
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
+    <!-- TOKENOMICS -->
+    <div class="section">
+        <h2 style="color:gold;">Tokenomics</h2>
+        <p>Maks Supply: 1,000,000,000</p>
+        <p>Liquidity Locked | No Team Tokens | Fair Launch</p>
+    </div>
 
-/* TABELA TOKENOMICS */
-.tokenomica table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+    <!-- BUTONI -->
+    <a href="#" class="btn">Blej Token</a>
 
-.tokenomica th {
-    background: #111;
-    border: 1px solid var(--oro);
-    padding: 12px;
-    text-align: left;
-    color: var(--oro);
-}
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Scorpion Crypto — All Rights Reserved
+    </footer>
 
-.tokenomica td {
-    background: #222;
-    border: 1px solid var(--oro);
-    padding: 10px;
-    color: #eee;
-}
-
-/* FOOTER */
-piè-di-pagina {
-    padding: 25px 20px;
-    text-align: center;
-    color: #aaa;
-}
-
-</style>
+</body>
+</html>
