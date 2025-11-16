@@ -1,310 +1,234 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scorpion Coin</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #111, #1a1a1a);
-    }
-    .logo {
-      width: 180px;
-      height: auto;
-      display: block;
-      margin: 0 auto 20px auto;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-    h2 {
-      margin-top: 40px;
-      font-size: 2rem;
-      color: #f5c242;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    .btn {
-      background: #f5c242;
-      color: black;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    footer {
-      padding: 30px 20px;
-      margin-top: 50px;
-      background: #111;
-      color: #888;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body><header>
-  <img class="logo" src="https://raw.githubusercontent.com/scorpcoinn-hue/Scorpioncrypto/main/logo.png" alt="Scorpion Coin Logo" />
-  <h1>Scorpion Coin</h1>
-  <p>Crypto e fuqishme, e shpejtë dhe e sigurt për të ardhmen.</p>
-</header><section class="section">
-  <h2>Çfarë është Scorpion Coin?</h2>
-  <p>
-    Scorpion Coin është një kriptomonedhë moderne e dizajnuar për shpejtësi, siguri dhe vlerë të qëndrueshme. Projekti synon të ofrojë teknologji të avancuar dhe sistem të decentralizuar për të gjithë përdoruesit globalë.
-  </p>
-</section><section class="section">
-  <h2>Pse Scorpion Coin?</h2>
-  <p>
-    ✔ Transaksione ultra të shpejta <br>
-    ✔ Tarifa shumë të ulëta <br>
-    ✔ Platformë e sigurt <br>
-    ✔ Teknologji moderne blockchain
-  </p>
-</section><section class="section">
-  <h2>Whitepaper</h2>
-  <p>Lexo dokumentin zyrtar për të kuptuar projektin tonë.</p>
-  <a class="btn" href="#">Shkarko Whitepaper</a>
-</section><footer>
-  © 2025 ScorpionCoin. All Rights Reserved.
-</footer></body>
-</html><!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>ScorpionCrypto</title>
+<meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution.">
+<link rel="icon" href="logo.png">
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: radial-gradient(circle at top, #1a1a1a, #000);
-        color: #d4af37;
-    }
+  :root{
+    --gold:#d4af37;
+    --gold-2:#c9a63b;
+    --bg:#050505;
+    --muted:#cbbf8a;
+    --max-w:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%; margin:0; font-family:Inter,Arial,Helvetica,sans-serif; background:linear-gradient(180deg,#000 0%,#0d0d0d 40%); color:#fff; -webkit-font-smoothing:antialiased}
+  a{color:var(--gold); text-decoration:none}
+  /* NAV */
+  nav{position:fixed; inset:0 0 auto 0; display:flex; justify-content:center; gap:18px; padding:14px 12px; background:rgba(0,0,0,0.45); backdrop-filter: blur(4px); z-index:50; width:100%}
+  nav a{font-weight:700; color:var(--gold); padding:6px 10px; border-radius:8px}
+  nav a:hover{background:rgba(212,175,55,0.08); color:#fff}
 
-    /* NAVBAR */
-    nav {
-        width: 100%;
-        padding: 20px 40px;
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        background: rgba(0,0,0,0.4);
-        backdrop-filter: blur(5px);
-        position: fixed;
-        top: 0;
-        z-index: 100;
-    }
-    nav a {
-        color: #d4af37;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 600;
-        transition: 0.3s;
-    }
-    nav a:hover {
-        color: white;
-        transform: scale(1.1);
-    }
+  /* HERO */
+  .hero{min-height:85vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:100px 20px 60px}
+  .hero-inner{max-width:var(--max-w); margin:0 auto}
+  .logo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid rgba(212,175,55,0.06); box-shadow:0 30px 60px rgba(0,0,0,0.6), 0 0 60px rgba(212,175,55,0.06); background:#000}
+  h1{color:var(--gold); font-size:3rem; margin:22px 0 6px; letter-spacing:1px; text-transform:uppercase}
+  p.lead{color:var(--muted); margin:0 auto 18px; max-width:820px; font-size:1.05rem}
+  .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px}
+  .btn{padding:12px 20px;border-radius:12px;font-weight:700;min-width:160px;text-align:center;border:0;cursor:pointer}
+  .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2)); color:#000}
+  .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12); color:var(--gold)}
 
-    /* HERO SECTION */
-    .hero {
-        text-align: center;
-        padding-top: 140px;
-        padding-bottom: 80px;
-    }
-    .hero img {
-        width: 260px;
-        filter: drop-shadow(0 0 35px rgba(212,175,55,0.6));
-    }
-    .hero h1 {
-        margin-top: 20px;
-        font-size: 50px;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: #d4af37;
-    }
-    .hero p {
-        color: #b8b8b8;
-        font-size: 20px;
-        max-width: 600px;
-        margin: auto;
-        margin-top: 10px;
-    }
+  /* content */
+  main{max-width:var(--max-w); margin:36px auto; padding:0 16px}
+  section{margin-bottom:42px}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); padding:18px; border-radius:12px}
+  h2{color:var(--gold); font-size:1.6rem; display:inline-block; border-bottom:2px solid var(--gold); padding-bottom:6px}
 
-    /* BUTTONS */
-    .btn {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 14px 40px;
-        background: linear-gradient(90deg, #d4af37, #b9902e);
-        color: black;
-        font-weight: 700;
-        border-radius: 12px;
-        font-size: 18px;
-        text-decoration: none;
-        box-shadow: 0 0 25px rgba(212,175,55,0.4);
-        transition: 0.3s;
-    }
-    .btn:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0 35px rgba(212,175,55,0.8);
-    }
+  /* tokenomics table */
+  table{width:100%; border-collapse:collapse; margin-top:12px}
+  th,td{padding:12px; border:1px solid rgba(255,255,255,0.03); text-align:left}
+  th{background:#070707; color:var(--gold)}
 
-    /* SECTIONS */
-    section {
-        padding: 80px 20px;
-        max-width: 1100px;
-        margin: auto;
-    }
-    h2 {
-        font-size: 34px;
-        text-align: center;
-        border-bottom: 2px solid #d4af37;
-        display: inline-block;
-        padding-bottom: 8px;
-    }
-    p.section-text {
-        color: #c2c2c2;
-        text-align: center;
-        max-width: 800px;
-        margin: auto;
-        font-size: 18px;
-        margin-top: 15px;
-    }
+  /* roadmap */
+  .roadmap .step{padding:12px 14px; border-left:4px solid rgba(212,175,55,0.08); margin-bottom:12px; background:#070707; border-radius:8px}
 
-    /* TOKENOMICS TABLE */
-    table {
-        width: 100%;
-        margin-top: 25px;
-        border-collapse: collapse;
-        background-color: #0d0d0d;
-        border-radius: 12px;
-        overflow: hidden;
-    }
-    th, td {
-        padding: 16px;
-        border-bottom: 1px solid rgba(212,175,55,0.2);
-    }
-    th {
-        background: #111;
-        color: #d4af37;
-        font-size: 20px;
-    }
-    td {
-        color: #e6e6e6;
-        font-size: 18px;
-    }
+  /* footer */
+  footer{padding:32px 16px; text-align:center; color:#9b9b9b; border-top:1px solid rgba(255,255,255,0.02)}
 
-    /* ROADMAP */
-    .roadmap-item {
-        background: #0d0d0d;
-        padding: 15px 20px;
-        border-left: 4px solid #d4af37;
-        margin-top: 15px;
-        border-radius: 8px;
-        color: #e6e6e6;
-    }
-
-    /* SOCIAL */
-    .social {
-        margin-top: 25px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-    .social a {
-        padding: 10px 20px;
-        border: 2px solid #d4af37;
-        border-radius: 10px;
-        color: #d4af37;
-        text-decoration: none;
-        transition: 0.3s;
-        font-weight: 600;
-    }
-    .social a:hover {
-        background: #d4af37;
-        color: black;
-    }
-
-    /* FOOTER */
-    footer {
-        padding: 25px;
-        text-align: center;
-        color: #777;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        margin-top: 40px;
-    }
-
+  /* responsive */
+  @media(min-width:900px){ .hero-inner{padding:10px 24px} .logo{width:260px;height:260px} h1{font-size:3.6rem} }
+  @media(max-width:520px){ nav{gap:8px; padding:8px 6px; flex-wrap:wrap} nav a{font-size:0.95rem} h1{font-size:2rem} .logo{width:170px;height:170px} }
 </style>
 </head>
-
 <body>
 
-<nav>
-    <a href="#tokenomics">Tokenomics</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#community">Community</a>
-    <a href="https://x.com" target="_blank">Twitter</a>
+<nav aria-label="Main navigation">
+  <a href="#about">About</a>
+  <a href="#tokenomics">Tokenomics</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="whitepaper.html">Whitepaper</a>
+  <a href="team.html">Team</a>
+  <a href="faq.html">FAQ</a>
+  <a href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
 </nav>
 
-<div class="hero">
-    <img src="logo.png" alt="ScorpionCrypto Logo">
-    <h1>SCORPION CRYPTO</h1>
-    <p>The future of blockchain evolution — power, precision, and total innovation.</p>
-    <a class="btn" href="#tokenomics">Explore Tokenomics</a>
-</div>
+<header class="hero" role="banner" aria-label="Hero">
+  <div class="hero-inner">
+    <img class="logo" src="logo.png" alt="Scorpion Crypto logo (gold scorpion)">
+    <h1>ScorpionCrypto</h1>
+    <p class="lead">Power. Precision. Blockchain Evolution — built for community, engineered for longevity.</p>
 
-<section id="tokenomics">
-    <h2>Tokenomics</h2>
-    <p class="section-text">A sustainable and powerful token model designed for long-term growth.</p>
-
-    <table>
-        <tr><th>Category</th><th>Allocation</th></tr>
-        <tr><td>Community & Rewards</td><td>40%</td></tr>
-        <tr><td>Team (Vested)</td><td>25%</td></tr>
-        <tr><td>Liquidity</td><td>20%</td></tr>
-        <tr><td>Development Reserve</td><td>15%</td></tr>
-    </table>
-</section>
-
-<section id="roadmap">
-    <h2>Roadmap</h2>
-
-    <div class="roadmap-item"><strong>Q1:</strong> Project launch, website, whitepaper.</div>
-    <div class="roadmap-item"><strong>Q2:</strong> Token release, initial liquidity, listings.</div>
-    <div class="roadmap-item"><strong>Q3:</strong> DeFi integrations, partnerships.</div>
-    <div class="roadmap-item"><strong>Q4:</strong> Global expansion & governance system.</div>
-</section>
-
-<section id="community">
-    <h2>Community</h2>
-    <p class="section-text">Join the official ScorpionCrypto community for updates and announcements.</p>
-
-    <div class="social">
-        <a href="https://x.com" target="_blank">Twitter</a>
-        <a href="#">Telegram (soon)</a>
-        <a href="#">Discord (soon)</a>
+    <div class="cta" role="navigation" aria-label="Main actions">
+      <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
+      <a class="btn btn-ghost" href="#roadmap">See Roadmap</a>
+      <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn" target="_blank">Follow on X</a>
     </div>
-</section>
+  </div>
+</header>
+
+<main>
+  <section id="about" class="card" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <p class="muted">ScorpionCrypto is a next-generation blockchain ecosystem — speed, security and transparent tokenomics at its core. We focus on community-first distribution, on-chain utility and sustainable growth.</p>
+  </section>
+
+  <section id="tokenomics" class="card" aria-labelledby="tokenomics-title">
+    <h2 id="tokenomics-title">Tokenomics</h2>
+    <p class="muted">Fair distribution with long-term incentives to the community and staking participants.</p>
+    <table role="table" aria-label="Tokenomics">
+      <thead><tr><th>Category</th><th>Allocation</th></tr></thead>
+      <tbody>
+        <tr><td>Community & Staking</td><td>40%</td></tr>
+        <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
+        <tr><td>Initial Liquidity</td><td>20%</td></tr>
+        <tr><td>Reserve & Development</td><td>15%</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;color:#dcd3a1">Total supply: <strong>1,000,000,000</strong> SCORP — full vesting schedule and governance details in the whitepaper.</p>
+  </section>
+
+  <section id="roadmap" class="card" aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title">Roadmap</h2>
+    <div class="roadmap">
+      <div class="step"><strong>Q1:</strong> Foundation, smart-contract design, community building.</div>
+      <div class="step"><strong>Q2:</strong> Token launch, liquidity, initial listings.</div>
+      <div class="step"><strong>Q3:</strong> Integrations, audits, staking UI.</div>
+      <div class="step"><strong>Q4:</strong> Governance, partnerships, ecosystem expansion.</div>
+    </div>
+  </section>
+</main>
 
 <footer>
-    © 2025 ScorpionCrypto — Built for the future.
+  © 2025 ScorpionCrypto · <a href="whitepaper.html">Whitepaper</a> · <a href="faq.html">FAQ</a>
 </footer>
 
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ScorpionCrypto — Whitepaper</title>
+<link rel="icon" href="logo.png">
+<style>
+  body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#000;color:#fff;padding:28px;line-height:1.6}
+  header{max-width:1100px;margin:0 auto 24px;text-align:center}
+  h1{color:#d4af37;margin:8px 0}
+  main{max-width:1100px;margin:0 auto;background:rgba(255,255,255,0.02);padding:22px;border-radius:12px}
+  h2{color:#d4af37}
+  a{color:#d4af37}
+</style>
+</head>
+<body>
+<header>
+  <h1>ScorpionCrypto — Whitepaper</h1>
+  <p style="color:#cdbf86">Technical overview, tokenomics, governance and roadmap.</p>
+</header>
+<main>
+  <h2>1. Executive Summary</h2>
+  <p>ScorpionCrypto is a decentralized token project focused on community, security and utility. This whitepaper summarizes the protocol architecture and token distribution strategy.</p>
+
+  <h2>2. Tokenomics</h2>
+  <p>Total supply: 1,000,000,000 SCORP. Distribution: Community & Staking 40%, Team 25% (vested), Liquidity 20%, Reserve 15%.</p>
+
+  <h2>3. Governance & Vesting</h2>
+  <p>Governance will be launched after key milestones; team tokens are vested to align long-term incentives. Full schedules will be published on the site and GitHub.</p>
+
+  <h2>4. Security & Audits</h2>
+  <p>Smart contracts will be audited by third-party auditors before listings. Security-first approach to protect liquidity and user funds.</p>
+
+  <h2>5. Roadmap</h2>
+  <p>Short-term: launch & community. Mid-term: audits & listings. Long-term: staking, governance, ecosystem integrations.</p>
+
+  <p style="margin-top:16px;color:#c7b978">For the most up-to-date details, follow our official channels and check the project's GitHub repo.</p>
+</main>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ScorpionCrypto — Team</title>
+<link rel="icon" href="logo.png">
+<style>
+  body{margin:0;background:#000;color:#fff;font-family:Inter,Arial;padding:28px}
+  header{max-width:1100px;margin:0 auto;text-align:center}
+  h1{color:#d4af37}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:1100px;margin:20px auto}
+  .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+  img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+  .role{color:#d4af37;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <h1>Team</h1>
+  <p style="color:#cdbf86">Core contributors and advisors (public or anonymous as decided).</p>
+</header>
+
+<div class="grid">
+  <div class="card">
+    <img src="logo.png" alt="Founder">
+    <h3>Founder</h3>
+    <div class="role">Lead</div>
+    <p>Founder & vision lead. (Public or pseudonymous)</p>
+  </div>
+
+  <div class="card">
+    <img src="logo.png" alt="Dev">
+    <h3>Developer</h3>
+    <div class="role">Smart Contracts</div>
+    <p>Core dev responsible for contracts, audits and integrations.</p>
+  </div>
+
+  <div class="card">
+    <img src="logo.png" alt="Marketing">
+    <h3>Marketing Lead</h3>
+    <div class="role">Community</div>
+    <p>Growth, partnerships, PR and community operations.</p>
+  </div>
+</div>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ScorpionCrypto — FAQ</title>
+<link rel="icon" href="logo.png">
+<style>
+  body{margin:0;background:#000;color:#fff;font-family:Inter,Arial;padding:28px}
+  header{max-width:1100px;margin:0 auto;text-align:center}
+  h1{color:#d4af37}
+  main{max-width:1100px;margin:18px auto;background:rgba(255,255,255,0.02);padding:20px;border-radius:12px}
+  summary{cursor:pointer;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);display:block;margin-bottom:10px;background:#070707}
+  details[open] summary{background:rgba(212,175,55,0.06)}
+</style>
+</head>
+<body>
+<header><h1>FAQ</h1><p style="color:#cdbf86">Answers to common questions.</p></header>
+<main>
+  <details open><summary>What is ScorpionCrypto?</summary><p>ScorpionCrypto is a community-first token focused on transparency and long-term sustainability.</p></details>
+
+  <details><summary>How do I buy?</summary><p>Buying instructions will be listed once token is deployed and paired on DEXes. Always verify contract address in our official channels.</p></details>
+
+  <details><summary>Is there an audit?</summary><p>Audits will be performed before major listings. Audit reports will be published in the whitepaper & GitHub.</p></details>
+</main>
 </body>
 </html>
