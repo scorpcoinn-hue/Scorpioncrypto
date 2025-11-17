@@ -212,3 +212,323 @@
 
 </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ScorpionCrypto — Wallet (PRO MAX)</title>
+<link rel="icon" href="logo.png">
+<style>
+  :root{--gold:#d4af37;--muted:#cfc196;--bg:#050505;--card:#0b0b0b}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg),#070707);color:#fff}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px}
+  header{display:flex;align-items:center;gap:18px}
+  header img{width:72px;height:72px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(212,175,55,0.08)}
+  h1{margin:0;color:var(--gold);letter-spacing:1px}
+  p.lead{color:var(--muted);margin-top:6px}
+
+  /* Card */
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:20px;border-radius:12px;margin-top:20px}
+
+  /* Connect area */
+  .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{padding:10px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+  .btn-primary{background:linear-gradient(90deg,var(--gold),#c9a63b);color:#000;box-shadow:0 8px 30px rgba(212,175,55,0.12)}
+  .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--gold)}
+
+  /* Address & balance */
+  .wallet-info{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
+  .addr{background:#0b0b0b;padding:10px 12px;border-radius:10px;font-weight:600;color:#fff}
+  .small{color:#cfc196;font-size:14px}
+
+  /* Modal */
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;z-index:999}
+  .modal{width:94%;max-width:520px;background:linear-gradient(180deg,#0b0b0b,#0a0a0a);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+  .wallet-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .wallet-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:#0f0f0f;cursor:pointer;border:1px solid rgba(255,255,255,0.02);transition:transform .12s,box-shadow .12s}
+  .wallet-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+  .wallet-card img{width:36px;height:36px;object-fit:contain}
+
+  .modal-footer{display:flex;justify-content:flex-end;margin-top:12px;gap:8px}
+  .muted{color:var(--muted)}
+
+  /* SPL token form */
+  .token-form{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-width:220px}
+
+  /* responsive */
+  @media(max-width:640px){ .wallet-list{grid-template-columns:1fr} .controls{flex-direction:column;align-items:flex-start} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <img src="logo.png" alt="Scorpion logo">
+    <div>
+      <h1>ScorpionCrypto — Wallet (PRO)</h1>
+      <p class="lead">Connect your Solana wallet, check SOL & SPL balances, and manage connection securely.</p>
+    </div>
+  </header>
+
+  <div class="card">
+    <div class="controls">
+      <button id="openModalBtn" class="btn btn-primary">Connect Wallet</button>
+      <button id="disconnectBtn" class="btn btn-ghost" style="display:none">Disconnect</button>
+      <button id="copyBtn" class="btn btn-ghost" style="display:none">Copy Address</button>
+      <a id="explorerLink" class="btn btn-ghost" style="display:none" target="_blank">View on Explorer</a>
+    </div>
+
+    <div class="wallet-info">
+      <div id="addrBox" class="addr" style="display:none"></div>
+      <div id="balanceBox" class="small" style="display:none"></div>
+    </div>
+
+    <div style="margin-top:16px" class="muted">
+      Want SPL token balance? Paste token mint address and click Check:
+    </div>
+
+    <div class="token-form">
+      <input id="tokenMint" class="input" placeholder="SPL token mint (e.g. So111... or custom token mint)">
+      <button id="checkTokenBtn" class="btn btn-primary" style="display:inline-block">Check Token Balance</button>
+      <div id="tokenResult" class="small" style="align-self:center"></div>
+    </div>
+  </div>
+</div>
+
+<!-- WALLET SELECTION MODAL -->
+<div class="modal-bg" id="modalBg" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Select Wallet">
+    <h3>Select a Wallet</h3>
+    <p class="muted">Supported: Phantom, Solflare, OKX (if installed), Bitget/Backpack (if present).</p>
+
+    <div class="wallet-list" id="walletList">
+      <!-- Cards filled by JS -->
+    </div>
+
+    <div class="modal-footer">
+      <button id="closeModal" class="btn btn-ghost">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Solana web3 -->
+<script src="https://unpkg.com/@solana/web3.js@1.73.0/lib/index.iife.min.js"></script>
+<script>
+/* ---------- helper UI ---------- */
+const modalBg = document.getElementById('modalBg');
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModal = document.getElementById('closeModal');
+const walletList = document.getElementById('walletList');
+const addrBox = document.getElementById('addrBox');
+const balanceBox = document.getElementById('balanceBox');
+const disconnectBtn = document.getElementById('disconnectBtn');
+const copyBtn = document.getElementById('copyBtn');
+const explorerLink = document.getElementById('explorerLink');
+const tokenMintInput = document.getElementById('tokenMint');
+const checkTokenBtn = document.getElementById('checkTokenBtn');
+const tokenResult = document.getElementById('tokenResult');
+
+let provider = null;
+let publicKey = null;
+const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
+
+/* ---------- wallet definitions (visual + label + click handler) ---------- */
+const wallets = [
+  { id:'phantom', name:'Phantom', logo:'https://cryptologos.cc/logos/phantom-phantom-logo.png', connect: connectPhantom },
+  { id:'solflare', name:'Solflare', logo:'https://cryptologos.cc/logos/solflare-solflare-logo.png', connect: connectSolflare },
+  { id:'okx', name:'OKX Wallet', logo:'https://seeklogo.com/images/O/okx-logo-8F3C48A4C3-seeklogo.com.png', connect: connectOkx },
+  { id:'bitget', name:'Bitget Wallet', logo:'https://cryptologos.cc/logos/bitget-bgb-logo.png', connect: connectBitget },
+  { id:'backpack', name:'Backpack', logo:'https://cryptologos.cc/logos/backpack-wallet-logo.png', connect: connectBackpack },
+  { id:'coinbase', name:'Coinbase (link)', logo:'https://cryptologos.cc/logos/coinbase-coin-cb-logo.png', connect: () => { window.open('https://wallet.coinbase.com/', '_blank'); } },
+  { id:'install', name:'Install Phantom', logo:'https://cryptologos.cc/logos/phantom-phantom-logo.png', connect: () => { window.open('https://phantom.app/', '_blank'); } },
+];
+
+/* build wallet cards */
+function renderWalletCards(){
+  walletList.innerHTML = '';
+  wallets.forEach(w => {
+    const div = document.createElement('div');
+    div.className = 'wallet-card';
+    div.innerHTML = `<img src="${w.logo}" alt="${w.name}"><div>${w.name}</div>`;
+    div.addEventListener('click', async (e)=>{
+      try{
+        await w.connect();
+      }catch(err){
+        alert('Connection error: ' + (err && err.message ? err.message : err));
+      }
+    });
+    walletList.appendChild(div);
+  });
+}
+renderWalletCards();
+
+/* modal open/close */
+openModalBtn.onclick = ()=>{ modalBg.style.display='flex'; modalBg.setAttribute('aria-hidden','false'); }
+closeModal.onclick = ()=>{ modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); }
+modalBg.addEventListener('click', (e)=>{ if(e.target===modalBg){ modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); } });
+
+/* ---------- connect implementations ---------- */
+
+/* Generic detection helper */
+function shortAddress(pk){
+  if(!pk) return '';
+  const s = pk.toString();
+  return s.slice(0,4) + '...' + s.slice(-4);
+}
+
+/* PHANTOM */
+async function connectPhantom(){
+  // modern Phantom injects window.solana
+  if(window.solana && window.solana.isPhantom){
+    provider = window.solana;
+    const resp = await provider.connect();
+    publicKey = resp.publicKey;
+    onConnect();
+  } else {
+    // offer install
+    if(confirm('Phantom not detected. Install Phantom extension or app?')) window.open('https://phantom.app/', '_blank');
+  }
+}
+
+/* SOLFLARE */
+async function connectSolflare(){
+  // Solflare injects window.solflare or window.solana with isSolflare
+  if(window.solflare && window.solflare.isSolflare){
+    provider = window.solflare;
+    const resp = await provider.connect();
+    publicKey = resp.publicKey || resp;
+    onConnect();
+  } else if(window.solana && window.solana.isSolflare){
+    provider = window.solana;
+    const resp = await provider.connect();
+    publicKey = resp.publicKey;
+    onConnect();
+  } else {
+    if(confirm('Solflare not detected. Open Solflare web wallet?')) window.open('https://solflare.com/', '_blank');
+  }
+}
+
+/* OKX (if OKX injects provider) */
+async function connectOkx(){
+  if(window.okxwallet){
+    provider = window.okxwallet;
+    try{
+      const resp = await provider.request({ method: 'solana_requestAccounts' });
+      publicKey = new solanaWeb3.PublicKey(resp[0]);
+      onConnect();
+    }catch(e){ throw e }
+  } else {
+    if(confirm('OKX Wallet not detected. Open OKX Wallet page?')) window.open('https://www.okx.com/', '_blank');
+  }
+}
+
+/* Bitget / Backpack (best-effort) */
+async function connectBitget(){
+  if(window.bitget){
+    provider = window.bitget;
+    const resp = await provider.connect();
+    publicKey = resp.publicKey || resp;
+    onConnect();
+  } else {
+    alert('Bitget Wallet not detected in browser.');
+  }
+}
+async function connectBackpack(){
+  if(window.backpackSolana){
+    provider = window.backpackSolana;
+    const resp = await provider.connect();
+    publicKey = resp.publicKey || resp;
+    onConnect();
+  } else {
+    alert('Backpack not detected.');
+  }
+}
+
+/* ---------- On Connect (common) ---------- */
+async function onConnect(){
+  if(!publicKey) return;
+  const pkStr = publicKey.toString();
+  addrBox.style.display='inline-block';
+  addrBox.textContent = shortAddress(pkStr);
+  copyBtn.style.display='inline-block';
+  disconnectBtn.style.display='inline-block';
+  explorerLink.style.display='inline-block';
+  explorerLink.href = 'https://explorer.solana.com/address/' + pkStr + '?cluster=mainnet-beta';
+  // load balance
+  try{
+    const balLamports = await connection.getBalance(publicKey);
+    const sol = balLamports / solanaWeb3.LAMPORTS_PER_SOL;
+    balanceBox.style.display='inline-block';
+    balanceBox.textContent = 'SOL: ' + (Number(sol).toFixed(4));
+  }catch(e){
+    balanceBox.style.display='inline-block';
+    balanceBox.textContent = 'SOL: —';
+  }
+  modalBg.style.display='none';
+  document.getElementById('openModalBtn').textContent = 'Connected ✓';
+  document.getElementById('openModalBtn').classList.remove('btn-primary');
+  document.getElementById('openModalBtn').classList.add('btn-ghost');
+}
+
+/* disconnect */
+disconnectBtn.onclick = async ()=>{
+  try{
+    if(provider && provider.disconnect) await provider.disconnect();
+  }catch(e){}
+  provider = null; publicKey = null;
+  addrBox.style.display='none'; balanceBox.style.display='none';
+  disconnectBtn.style.display='none'; copyBtn.style.display='none'; explorerLink.style.display='none';
+  document.getElementById('openModalBtn').textContent = 'Connect Wallet';
+  document.getElementById('openModalBtn').classList.add('btn-primary');
+  document.getElementById('openModalBtn').classList.remove('btn-ghost');
+}
+
+/* copy */
+copyBtn.onclick = ()=>{
+  if(!publicKey) return;
+  navigator.clipboard.writeText(publicKey.toString());
+  copyBtn.textContent = 'Copied ✓';
+  setTimeout(()=> copyBtn.textContent = 'Copy Address', 1500);
+}
+
+/* Token balance checker (SPL) */
+checkTokenBtn.onclick = async ()=>{
+  const mint = tokenMintInput.value.trim();
+  tokenResult.textContent = '';
+  if(!publicKey){
+    alert('Connect wallet first.');
+    return;
+  }
+  if(!mint){ alert('Enter SPL token mint address'); return; }
+  try{
+    const mintPubkey = new solanaWeb3.PublicKey(mint);
+    // find token account for owner
+    const resp = await connection.getTokenAccountsByOwner(publicKey, { mint: mintPubkey });
+    if(resp.value.length === 0){
+      tokenResult.textContent = 'Token balance: 0';
+      return;
+    }
+    // use first account
+    const acctInfo = await connection.getParsedAccountInfo(resp.value[0].pubkey);
+    const parsed = acctInfo.value.data.parsed;
+    const amount = parsed.info.tokenAmount.uiAmountString;
+    tokenResult.textContent = 'Token balance: ' + amount;
+  }catch(e){
+    tokenResult.textContent = 'Error checking token (invalid mint?)';
+  }
+}
+
+/* try auto-reconnect if user already connected (Phantom autoprompt) */
+window.addEventListener('load', async ()=>{
+  // some wallets keep .isConnected
+  if(window.solana && window.solana.isPhantom && window.solana.isConnected){
+    try{ const r = await window.solana.connect({ onlyIfTrusted:true }); if(r && r.publicKey){ publicKey = r.publicKey; onConnect(); } }catch(e){}
+  }
+});
+
+</script>
+</body>
+</html>
