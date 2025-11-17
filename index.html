@@ -1,175 +1,107 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Scorpion Crypto</title>
-  <meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution."/>
-  <link rel="icon" href="SmartSelect_20251028_161329_Grok.png">
-<link rel="icon" href="favicon.png">
+  <title>Scorpion Crypto — Ultra Pro Max</title>
+  <meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution. Full site with wallet connect (Solana) and exchanges."/>
+  <link rel="icon" href="images/scorpion-favicon.png">
   <style>
-    :root{
-      --gold: #d4af37;
-      --gold-2: #c9a63b;
-      --muted: #bdbdbd;
-      --bg-dark: #000;
-      --max-w: 1100px;
-    }
+    :root{--gold:#d4af37;--gold-2:#c9a63b;--muted:#bdbdbd;--bg:#040404;--card:#0b0b0b;--max-w:1100px}
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#fff;
-      background:var(--bg-dark);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-    }
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:linear-gradient(180deg,#030303 0%, #0b0b0b 80%);color:#fff;-webkit-font-smoothing:antialiased}/* container */
+.site{max-width:var(--max-w);margin:0 auto;padding:18px}
 
-    /* HERO / HEADER */
-    header.hero{
-      min-height:56vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:56px 20px;
-      position:relative;
-      /* gradient gold over black as main background (also will pick up header-bg.png if you add it) */
-      background-image:
-        linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(0,0,0,0.95) 100%);
-      background-size:cover;
-      background-position:center;
-    }
+/* top nav */
+nav{display:flex;justify-content:center;gap:26px;padding:10px 6px}
+nav a{color:var(--gold);text-decoration:none;font-weight:700}
 
-    .hero-inner{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding: 24px;
-    }
+/* hero */
+.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:44px 12px}
+.hero-inner{max-width:900px;margin:0 auto}
+.logo{width:170px;height:170px;border-radius:50%;display:block;margin:0 auto 14px;object-fit:cover;border:6px solid rgba(212,175,55,0.06);box-shadow:0 26px 80px rgba(0,0,0,0.6),0 0 60px rgba(212,175,55,0.08);background:radial-gradient(circle at center, rgba(212,175,55,0.06) 0%, transparent 40%)}
+h1{color:var(--gold);font-size:2.6rem;margin:10px 0;text-transform:uppercase;letter-spacing:1.8px;text-shadow:0 6px 30px rgba(212,175,55,0.14)}
+p.lead{color:var(--muted);margin:8px auto 16px;max-width:760px;font-size:1.02rem}
 
-    .logo {
-      display:block;
-      margin:0 auto 18px;
-      width:170px;
-      max-width:36%;
-      height:auto;
-      object-fit:cover;
-      border-radius:50%;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 28px rgba(212,175,55,0.08);
-      filter: drop-shadow(0 0 20px rgba(212,175,55,0.16));
-      background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(0,0,0,0.12));
-      padding:6px;
-      animation: logoIn 700ms ease both;
-    }
-    @keyframes logoIn { from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:none} }
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.btn{padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:800;min-width:150px;text-align:center;display:inline-block;border:0;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#000;box-shadow:0 10px 34px rgba(212,175,55,0.16)}
+.btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--gold)}
 
-    h1{
-      margin:0;
-      color:var(--gold);
-      font-size:2.25rem;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      margin-top:6px;
-    }
+main{display:grid;grid-template-columns:1fr;gap:26px;padding:20px}
+@media(min-width:980px){ main{grid-template-columns:2fr 1fr} }
 
-    p.lead{
-      color:var(--muted);
-      margin:10px 0 18px;
-      font-size:1.02rem;
-      max-width:820px;
-      margin-left:auto;
-      margin-right:auto;
-    }
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:18px;border-radius:14px}
+h2{color:var(--gold);font-size:1.15rem;margin:0 0 12px;display:inline-block;border-bottom:2px solid rgba(212,175,55,0.08);padding-bottom:6px}
+.muted{color:var(--muted)}
 
-    .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
-    .btn {
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      min-width:150px;
-      text-align:center;
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .btn-primary{
-      background: linear-gradient(90deg, var(--gold), var(--gold-2));
-      color:#000;
-      box-shadow: 0 10px 26px rgba(212,175,55,0.14);
-    }
-    .btn-primary:hover{ transform:translateY(-3px); box-shadow: 0 18px 36px rgba(212,175,55,0.18); }
-    .btn-ghost{
-      background:transparent;
-      border:1px solid rgba(212,175,55,0.14);
-      color:var(--gold);
-    }
-    .btn-ghost:hover{ background:rgba(212,175,55,0.06); transform:translateY(-3px); }
+/* Tokenomics table */
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{padding:12px;border:1px solid rgba(255,255,255,0.03);text-align:left}
+th{background:#070707;color:var(--gold)}
 
-    /* MAIN CONTENT */
-    main{ padding:44px 20px; max-width:var(--max-w); margin:0 auto; }
-    section{ margin-bottom:42px; }
-    h2{ color:var(--gold); font-size:1.2rem; margin-bottom:12px; display:inline-block; border-bottom:2px solid var(--gold); padding-bottom:6px; }
-    .muted{ color:var(--muted); }
+/* Wallets grid */
+.wallets-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:700px){ .wallets-grid{grid-template-columns:repeat(3,1fr)} }
+.wallet-card{background:#0b0b0b;border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;min-height:120px;text-decoration:none;color:inherit;border:1px solid rgba(255,255,255,0.02)}
+.wallet-card img{width:68px;height:68px;object-fit:contain}
+.wallet-name{color:var(--muted);font-weight:800;margin-top:6px}
 
-    /* Tokenomics table */
-    .tokenomics table{ width:100%; border-collapse:collapse; margin-top:12px; }
-    .tokenomics th, .tokenomics td{ padding:12px 10px; border:1px solid rgba(212,175,55,0.08); text-align:left; }
-    .tokenomics th{ background:#070707; color:var(--gold); font-weight:600; }
+/* Wallet connect modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;z-index:999}
+.modal{width:94%;max-width:640px;background:linear-gradient(180deg,#0b0b0b,#0a0a0a);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+.wallet-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+@media(min-width:640px){ .wallet-list{grid-template-columns:repeat(3,1fr)} }
+.wallet-row{display:flex;gap:10px;align-items:center;padding:12px;border-radius:10px;background:#0f0f0f;cursor:pointer;transition:transform .12s}
+.wallet-row:hover{transform:translateY(-6px)}
+.wallet-row img{width:36px;height:36px;object-fit:contain}
 
-    /* Roadmap */
-    .roadmap .step{ padding:12px 14px; border-left:4px solid rgba(212,175,55,0.08); margin-bottom:12px; background:#050505; border-radius:6px; }
+footer{padding:36px 12px;text-align:center;color:#9a9a9a;border-top:1px solid rgba(255,255,255,0.02);margin-top:36px}
 
-    /* Community */
-    .community{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center; margin-top:8px; }
-    .social {
-      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; background:rgba(212,175,55,0.12);
-      color: #000; text-decoration:none; font-weight:600;
-    }
+/* small screens tweaks */
+@media(max-width:520px){ .logo{width:140px;height:140px} h1{font-size:1.6rem} }
 
-    footer{ padding:28px 20px; text-align:center; color:#8b8b8b; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.02); margin-top:30px; }
-
-    /* small screens */
-    @media (max-width:720px){
-      .logo{ width:140px; }
-      h1{ font-size:1.6rem; }
-      .hero{ padding:40px 12px; }
-    }
   </style>
 </head>
 <body>
+  <div class="site"><nav role="navigation" aria-label="Main navigation">
+  <a href="#about">About</a>
+  <a href="#tokenomics">Tokenomics</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#wallets">Wallets</a>
+  <a href="#faq">FAQ</a>
+</nav>
 
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Scorpion Crypto header">
-    <div class="hero-inner">
-      <!-- use raw GitHub URL so image loads from repo: replace if you prefer relative path -->
-      <img class="logo" src="https://github.com/scorpcoinn-hue/Scorpioncrypto/raw/main/SmartSelect_20251028_161329_Grok.png" alt="Scorpion Crypto logo">
-      <h1>Scorpion Crypto</h1>
-      <p class="lead">Power. Precision. Blockchain Evolution.</p>
+<header class="hero" role="banner" aria-label="Scorpion hero">
+  <div class="hero-inner">
+    <!-- Replace images/scorpion.png with your logo file in the repo -->
+    <img class="logo" src="images/scorpion.png" alt="Scorpion logo">
+    <h1>Scorpion Crypto</h1>
+    <p class="lead">Power. Precision. Blockchain Evolution — a premium token experience. Connect wallets, check tokenomics and follow roadmap.</p>
 
-      <div class="cta-row" role="navigation" aria-label="Primary calls to action">
-        <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
-        <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer">Follow on X</a>
-      </div>
+    <div class="cta-row" role="navigation" aria-label="Primary actions">
+      <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
+      <button id="openWalletsBtn" class="btn btn-ghost">Connect Wallet</button>
+      <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer">Follow on X</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About Scorpion</h2>
-      <p class="muted">Scorpion Crypto is a forward-looking blockchain project that prioritizes security, speed and protocol-level transparency. Designed for the community and engineered for resilience, Scorpion aims to deliver sustainable tokenomics and seamless DeFi integrations for a global ecosystem.</p>
-    </section>
+<main>
+  <!-- left column -->
+  <section>
+    <article class="card" id="about">
+      <h2>About Scorpion</h2>
+      <p class="muted">Scorpion Crypto is a next-generation blockchain token focused on security, speed, and sustainable tokenomics. Built for the community with audits, liquidity planning and transparent governance.</p>
+    </article>
 
-    <!-- TOKENOMICS -->
-    <section id="tokenomics" class="tokenomics" aria-labelledby="tokenomics-title">
-      <h2 id="tokenomics-title">Tokenomics</h2>
-      <p class="muted">The token model is optimized for long-term growth and fair distribution across community, team, liquidity and development reserves.</p>
-
+    <article class="card" id="tokenomics">
+      <h2>Tokenomics</h2>
+      <p class="muted">Designed for long-term alignment and growth.</p>
       <table role="table" aria-label="Tokenomics table">
-        <thead>
-          <tr><th scope="col">Category</th><th scope="col">Allocation</th></tr>
-        </thead>
+        <thead><tr><th scope="col">Category</th><th scope="col">Allocation</th></tr></thead>
         <tbody>
           <tr><td>Community & Staking</td><td>40%</td></tr>
           <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
@@ -177,705 +109,121 @@
           <tr><td>Reserve & Development</td><td>15%</td></tr>
         </tbody>
       </table>
+      <p class="muted" style="margin-top:10px">Total supply: <strong>1,000,000,000</strong>. Whitepaper will contain full vesting schedule and allocation details.</p>
+    </article>
 
-      <p class="muted" style="margin-top:12px;">Total supply: 1,000,000,000 (1 billion). More details including vesting schedule will appear in the whitepaper.</p>
-    </section>
-
-    <!-- ROADMAP -->
-    <section id="roadmap" class="roadmap" aria-labelledby="roadmap-title">
-      <h2 id="roadmap-title">Roadmap</h2>
-      <div class="step"><strong>Q1:</strong> Project foundation, team, whitepaper</div>
-      <div class="step"><strong>Q2:</strong> Token launch, initial liquidity, community growth</div>
-      <div class="step"><strong>Q3:</strong> Integrations, security audits, listing strategy</div>
-      <div class="step"><strong>Q4:</strong> Partnerships, scaling, governance rollout</div>
-    </section>
-
-    <!-- COMMUNITY / CONTACT -->
-    <section id="community" aria-labelledby="community-title">
-      <h2 id="community-title">Join the Community</h2>
-      <p class="muted">Connect with us for updates, airdrops and governance — follow the official channel and join the discussion.</p>
-
-      <div class="community" role="group" aria-label="Community links">
-        <a class="social" href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right:6px"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9.02 9.02 0 0 1-2.84 1.08A4.52 4.52 0 0 0 12.41 5.5a12.84 12.84 0 0 1-9.3-4.7 4.48 4.48 0 0 0 1.4 6.02A4.48 4.48 0 0 1 2 6.9v.06A4.52 4.52 0 0 0 4.5 11.4a4.52 4.52 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.12A9.06 9.06 0 0 1 1 19.54 12.84 12.84 0 0 0 8.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18 0-.35-.01-.53A8.18 8.18 0 0 0 23 3z" fill="#000"/></svg>
-          Follow us on X
-        </a>
-
-        <a class="social" href="#" onclick="alert('Discord / Telegram coming soon');return false;">Join Discord (coming)</a>
+    <article class="card" id="roadmap">
+      <h2>Roadmap</h2>
+      <div style="display:grid;gap:10px;margin-top:12px">
+        <div style="background:#080808;padding:12px;border-radius:8px">Q1 — Foundation, team, whitepaper</div>
+        <div style="background:#080808;padding:12px;border-radius:8px">Q2 — Token launch, liquidity, community building</div>
+        <div style="background:#080808;padding:12px;border-radius:8px">Q3 — Audits, listings, integrations</div>
+        <div style="background:#080808;padding:12px;border-radius:8px">Q4 — Governance, partnerships, scaling</div>
       </div>
-    </section>
-  </main>
+    </article>
+  </section>
 
-  <footer>
-    © 2025 Scorpion Crypto · Built for the community.
-  </footer>
-
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>ScorpionCrypto — Wallet (PRO MAX)</title>
-<link rel="icon" href="logo.png">
-<style>
-  :root{--gold:#d4af37;--muted:#cfc196;--bg:#050505;--card:#0b0b0b}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg),#070707);color:#fff}
-  .wrap{max-width:1100px;margin:0 auto;padding:28px}
-  header{display:flex;align-items:center;gap:18px}
-  header img{width:72px;height:72px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(212,175,55,0.08)}
-  h1{margin:0;color:var(--gold);letter-spacing:1px}
-  p.lead{color:var(--muted);margin-top:6px}
-
-  /* Card */
-  .card{background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:20px;border-radius:12px;margin-top:20px}
-
-  /* Connect area */
-  .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-  .btn{padding:10px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
-  .btn-primary{background:linear-gradient(90deg,var(--gold),#c9a63b);color:#000;box-shadow:0 8px 30px rgba(212,175,55,0.12)}
-  .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--gold)}
-
-  /* Address & balance */
-  .wallet-info{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
-  .addr{background:#0b0b0b;padding:10px 12px;border-radius:10px;font-weight:600;color:#fff}
-  .small{color:#cfc196;font-size:14px}
-
-  /* Modal */
-  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;z-index:999}
-  .modal{width:94%;max-width:520px;background:linear-gradient(180deg,#0b0b0b,#0a0a0a);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
-  .wallet-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-  .wallet-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:#0f0f0f;cursor:pointer;border:1px solid rgba(255,255,255,0.02);transition:transform .12s,box-shadow .12s}
-  .wallet-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
-  .wallet-card img{width:36px;height:36px;object-fit:contain}
-
-  .modal-footer{display:flex;justify-content:flex-end;margin-top:12px;gap:8px}
-  .muted{color:var(--muted)}
-
-  /* SPL token form */
-  .token-form{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-  .input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-width:220px}
-
-  /* responsive */
-  @media(max-width:640px){ .wallet-list{grid-template-columns:1fr} .controls{flex-direction:column;align-items:flex-start} }
-</style>
-</head>
-<body>
-
-<div class="wrap">
-  <header>
-    <img src="logo.png" alt="Scorpion logo">
-    <div>
-      <h1>ScorpionCrypto — Wallet (PRO)</h1>
-      <p class="lead">Connect your Solana wallet, check SOL & SPL balances, and manage connection securely.</p>
-    </div>
-  </header>
-
-  <div class="card">
-    <div class="controls">
-      <button id="openModalBtn" class="btn btn-primary">Connect Wallet</button>
-      <button id="disconnectBtn" class="btn btn-ghost" style="display:none">Disconnect</button>
-      <button id="copyBtn" class="btn btn-ghost" style="display:none">Copy Address</button>
-      <a id="explorerLink" class="btn btn-ghost" style="display:none" target="_blank">View on Explorer</a>
+  <!-- right column -->
+  <aside>
+    <div class="card">
+      <h2>Quick Links</h2>
+      <p class="muted">Whitepaper, Audit, Contract address and more — add links here.</p>
+      <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#">Whitepaper</a>
+        <a class="btn btn-ghost" href="#">Audit</a>
+      </div>
     </div>
 
-    <div class="wallet-info">
-      <div id="addrBox" class="addr" style="display:none"></div>
-      <div id="balanceBox" class="small" style="display:none"></div>
+    <div class="card" style="margin-top:20px" id="wallets">
+      <h2>Supported Wallets & Exchanges</h2>
+      <p class="muted">Click a card to open the exchange or the wallet website. Replace images in /images/ with real logos (see instructions below).</p>
+
+      <div class="wallets-grid" style="margin-top:14px">
+        <a class="wallet-card" href="https://www.binance.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-binance.png" alt="Binance"><div class="wallet-name">Binance</div></a>
+        <a class="wallet-card" href="https://www.okx.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-okx.png" alt="OKX"><div class="wallet-name">OKX</div></a>
+        <a class="wallet-card" href="https://www.mexc.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-mexc.png" alt="MEXC"><div class="wallet-name">MEXC</div></a>
+        <a class="wallet-card" href="https://trustwallet.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-trustwallet.png" alt="Trust Wallet"><div class="wallet-name">Trust Wallet</div></a>
+        <a class="wallet-card" href="https://onchain.example" target="_blank" rel="noopener noreferrer"><img src="images/ex-onchain.png" alt="Onchain"><div class="wallet-name">Onchain</div></a>
+        <a class="wallet-card" href="https://www.bybit.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-bybit.png" alt="Bybit"><div class="wallet-name">Bybit</div></a>
+        <a class="wallet-card" href="https://www.gate.io" target="_blank" rel="noopener noreferrer"><img src="images/ex-gateio.png" alt="Gate.io"><div class="wallet-name">Gate.io</div></a>
+        <a class="wallet-card" href="https://www.kucoin.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-kucoin.png" alt="KuCoin"><div class="wallet-name">KuCoin</div></a>
+        <a class="wallet-card" href="https://www.bitget.com" target="_blank" rel="noopener noreferrer"><img src="images/ex-bitget.png" alt="Bitget"><div class="wallet-name">Bitget</div></a>
+        <a class="wallet-card" href="https://metamask.io" target="_blank" rel="noopener noreferrer"><img src="images/ex-metamask.png" alt="MetaMask"><div class="wallet-name">MetaMask</div></a>
+      </div>
     </div>
 
-    <div style="margin-top:16px" class="muted">
-      Want SPL token balance? Paste token mint address and click Check:
-    </div>
+  </aside>
+</main>
 
-    <div class="token-form">
-      <input id="tokenMint" class="input" placeholder="SPL token mint (e.g. So111... or custom token mint)">
-      <button id="checkTokenBtn" class="btn btn-primary" style="display:inline-block">Check Token Balance</button>
-      <div id="tokenResult" class="small" style="align-self:center"></div>
-    </div>
+<footer>
+  © 2025 Scorpion Crypto · Built for the community · <a href="#" style="color:var(--gold)">Privacy</a>
+</footer>
+
+  </div>  <!-- WALLET CONNECT / SOLANA (modal) -->  <div class="modal-bg" id="modalBg" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Select Wallet">
+      <h3>Select Wallet</h3>
+      <p class="muted">Supported (demo): Phantom, Solflare, OKX, Backpack/Bitget. If not installed you will be prompted to install.</p><div class="wallet-list" id="walletList">
+    <!-- JS inserts cards -->
+  </div>
+
+  <div style="display:flex;justify-content:flex-end;margin-top:12px">
+    <button id="closeModalBtn" class="btn btn-ghost">Close</button>
   </div>
 </div>
 
-<!-- WALLET SELECTION MODAL -->
-<div class="modal-bg" id="modalBg" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-label="Select Wallet">
-    <h3>Select a Wallet</h3>
-    <p class="muted">Supported: Phantom, Solflare, OKX (if installed), Bitget/Backpack (if present).</p>
+  </div>  <!-- Scripts: Solana web3 (for demo wallet detection & basic functions) -->  <script src="https://unpkg.com/@solana/web3.js@1.73.0/lib/index.iife.min.js"></script>  <script>
+    // Basic wallet modal behaviour + demo connectors (best-effort)
+    const modalBg = document.getElementById('modalBg');
+    const openWalletsBtn = document.getElementById('openWalletsBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const walletList = document.getElementById('walletList');
 
-    <div class="wallet-list" id="walletList">
-      <!-- Cards filled by JS -->
-    </div>
+    const wallets = [
+      {id:'phantom',name:'Phantom',logo:'https://cryptologos.cc/logos/phantom-phantom-logo.png',action:connectPhantom},
+      {id:'solflare',name:'Solflare',logo:'https://cryptologos.cc/logos/solflare-solflare-logo.png',action:connectSolflare},
+      {id:'okx',name:'OKX Wallet',logo:'https://seeklogo.com/images/O/okx-logo-8F3C48A4C3-seeklogo.com.png',action:connectOkx},
+      {id:'bitget',name:'Bitget Wallet',logo:'https://cryptologos.cc/logos/bitget-bgb-logo.png',action:connectBitget},
+      {id:'backpack',name:'Backpack',logo:'https://cryptologos.cc/logos/backpack-wallet-logo.png',action:connectBackpack},
+      {id:'metamask',name:'MetaMask (EVM)',logo:'https://cryptologos.cc/logos/metamask-eth-logo.png',action:connectMetaMask}
+    ];
 
-    <div class="modal-footer">
-      <button id="closeModal" class="btn btn-ghost">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- Solana web3 -->
-<script src="https://unpkg.com/@solana/web3.js@1.73.0/lib/index.iife.min.js"></script>
-<script>
-/* ---------- helper UI ---------- */
-const modalBg = document.getElementById('modalBg');
-const openModalBtn = document.getElementById('openModalBtn');
-const closeModal = document.getElementById('closeModal');
-const walletList = document.getElementById('walletList');
-const addrBox = document.getElementById('addrBox');
-const balanceBox = document.getElementById('balanceBox');
-const disconnectBtn = document.getElementById('disconnectBtn');
-const copyBtn = document.getElementById('copyBtn');
-const explorerLink = document.getElementById('explorerLink');
-const tokenMintInput = document.getElementById('tokenMint');
-const checkTokenBtn = document.getElementById('checkTokenBtn');
-const tokenResult = document.getElementById('tokenResult');
-
-let provider = null;
-let publicKey = null;
-const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
-
-/* ---------- wallet definitions (visual + label + click handler) ---------- */
-const wallets = [
-  { id:'phantom', name:'Phantom', logo:'https://cryptologos.cc/logos/phantom-phantom-logo.png', connect: connectPhantom },
-  { id:'solflare', name:'Solflare', logo:'https://cryptologos.cc/logos/solflare-solflare-logo.png', connect: connectSolflare },
-  { id:'okx', name:'OKX Wallet', logo:'https://seeklogo.com/images/O/okx-logo-8F3C48A4C3-seeklogo.com.png', connect: connectOkx },
-  { id:'bitget', name:'Bitget Wallet', logo:'https://cryptologos.cc/logos/bitget-bgb-logo.png', connect: connectBitget },
-  { id:'backpack', name:'Backpack', logo:'https://cryptologos.cc/logos/backpack-wallet-logo.png', connect: connectBackpack },
-  { id:'coinbase', name:'Coinbase (link)', logo:'https://cryptologos.cc/logos/coinbase-coin-cb-logo.png', connect: () => { window.open('https://wallet.coinbase.com/', '_blank'); } },
-  { id:'install', name:'Install Phantom', logo:'https://cryptologos.cc/logos/phantom-phantom-logo.png', connect: () => { window.open('https://phantom.app/', '_blank'); } },
-];
-
-/* build wallet cards */
-function renderWalletCards(){
-  walletList.innerHTML = '';
-  wallets.forEach(w => {
-    const div = document.createElement('div');
-    div.className = 'wallet-card';
-    div.innerHTML = `<img src="${w.logo}" alt="${w.name}"><div>${w.name}</div>`;
-    div.addEventListener('click', async (e)=>{
-      try{
-        await w.connect();
-      }catch(err){
-        alert('Connection error: ' + (err && err.message ? err.message : err));
-      }
-    });
-    walletList.appendChild(div);
-  });
-}
-renderWalletCards();
-
-/* modal open/close */
-openModalBtn.onclick = ()=>{ modalBg.style.display='flex'; modalBg.setAttribute('aria-hidden','false'); }
-closeModal.onclick = ()=>{ modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); }
-modalBg.addEventListener('click', (e)=>{ if(e.target===modalBg){ modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); } });
-
-/* ---------- connect implementations ---------- */
-
-/* Generic detection helper */
-function shortAddress(pk){
-  if(!pk) return '';
-  const s = pk.toString();
-  return s.slice(0,4) + '...' + s.slice(-4);
-}
-
-/* PHANTOM */
-async function connectPhantom(){
-  // modern Phantom injects window.solana
-  if(window.solana && window.solana.isPhantom){
-    provider = window.solana;
-    const resp = await provider.connect();
-    publicKey = resp.publicKey;
-    onConnect();
-  } else {
-    // offer install
-    if(confirm('Phantom not detected. Install Phantom extension or app?')) window.open('https://phantom.app/', '_blank');
-  }
-}
-
-/* SOLFLARE */
-async function connectSolflare(){
-  // Solflare injects window.solflare or window.solana with isSolflare
-  if(window.solflare && window.solflare.isSolflare){
-    provider = window.solflare;
-    const resp = await provider.connect();
-    publicKey = resp.publicKey || resp;
-    onConnect();
-  } else if(window.solana && window.solana.isSolflare){
-    provider = window.solana;
-    const resp = await provider.connect();
-    publicKey = resp.publicKey;
-    onConnect();
-  } else {
-    if(confirm('Solflare not detected. Open Solflare web wallet?')) window.open('https://solflare.com/', '_blank');
-  }
-}
-
-/* OKX (if OKX injects provider) */
-async function connectOkx(){
-  if(window.okxwallet){
-    provider = window.okxwallet;
-    try{
-      const resp = await provider.request({ method: 'solana_requestAccounts' });
-      publicKey = new solanaWeb3.PublicKey(resp[0]);
-      onConnect();
-    }catch(e){ throw e }
-  } else {
-    if(confirm('OKX Wallet not detected. Open OKX Wallet page?')) window.open('https://www.okx.com/', '_blank');
-  }
-}
-
-/* Bitget / Backpack (best-effort) */
-async function connectBitget(){
-  if(window.bitget){
-    provider = window.bitget;
-    const resp = await provider.connect();
-    publicKey = resp.publicKey || resp;
-    onConnect();
-  } else {
-    alert('Bitget Wallet not detected in browser.');
-  }
-}
-async function connectBackpack(){
-  if(window.backpackSolana){
-    provider = window.backpackSolana;
-    const resp = await provider.connect();
-    publicKey = resp.publicKey || resp;
-    onConnect();
-  } else {
-    alert('Backpack not detected.');
-  }
-}
-
-/* ---------- On Connect (common) ---------- */
-async function onConnect(){
-  if(!publicKey) return;
-  const pkStr = publicKey.toString();
-  addrBox.style.display='inline-block';
-  addrBox.textContent = shortAddress(pkStr);
-  copyBtn.style.display='inline-block';
-  disconnectBtn.style.display='inline-block';
-  explorerLink.style.display='inline-block';
-  explorerLink.href = 'https://explorer.solana.com/address/' + pkStr + '?cluster=mainnet-beta';
-  // load balance
-  try{
-    const balLamports = await connection.getBalance(publicKey);
-    const sol = balLamports / solanaWeb3.LAMPORTS_PER_SOL;
-    balanceBox.style.display='inline-block';
-    balanceBox.textContent = 'SOL: ' + (Number(sol).toFixed(4));
-  }catch(e){
-    balanceBox.style.display='inline-block';
-    balanceBox.textContent = 'SOL: —';
-  }
-  modalBg.style.display='none';
-  document.getElementById('openModalBtn').textContent = 'Connected ✓';
-  document.getElementById('openModalBtn').classList.remove('btn-primary');
-  document.getElementById('openModalBtn').classList.add('btn-ghost');
-}
-
-/* disconnect */
-disconnectBtn.onclick = async ()=>{
-  try{
-    if(provider && provider.disconnect) await provider.disconnect();
-  }catch(e){}
-  provider = null; publicKey = null;
-  addrBox.style.display='none'; balanceBox.style.display='none';
-  disconnectBtn.style.display='none'; copyBtn.style.display='none'; explorerLink.style.display='none';
-  document.getElementById('openModalBtn').textContent = 'Connect Wallet';
-  document.getElementById('openModalBtn').classList.add('btn-primary');
-  document.getElementById('openModalBtn').classList.remove('btn-ghost');
-}
-
-/* copy */
-copyBtn.onclick = ()=>{
-  if(!publicKey) return;
-  navigator.clipboard.writeText(publicKey.toString());
-  copyBtn.textContent = 'Copied ✓';
-  setTimeout(()=> copyBtn.textContent = 'Copy Address', 1500);
-}
-
-/* Token balance checker (SPL) */
-checkTokenBtn.onclick = async ()=>{
-  const mint = tokenMintInput.value.trim();
-  tokenResult.textContent = '';
-  if(!publicKey){
-    alert('Connect wallet first.');
-    return;
-  }
-  if(!mint){ alert('Enter SPL token mint address'); return; }
-  try{
-    const mintPubkey = new solanaWeb3.PublicKey(mint);
-    // find token account for owner
-    const resp = await connection.getTokenAccountsByOwner(publicKey, { mint: mintPubkey });
-    if(resp.value.length === 0){
-      tokenResult.textContent = 'Token balance: 0';
-      return;
+    function renderWallets(){
+      walletList.innerHTML='';
+      wallets.forEach(w=>{
+        const div = document.createElement('div');
+        div.className='wallet-row';
+        div.innerHTML = `<img src="${w.logo}" alt="${w.name}"><div style=\"font-weight:700\">${w.name}</div>`;
+        div.onclick = ()=> w.action();
+        walletList.appendChild(div);
+      });
     }
-    // use first account
-    const acctInfo = await connection.getParsedAccountInfo(resp.value[0].pubkey);
-    const parsed = acctInfo.value.data.parsed;
-    const amount = parsed.info.tokenAmount.uiAmountString;
-    tokenResult.textContent = 'Token balance: ' + amount;
-  }catch(e){
-    tokenResult.textContent = 'Error checking token (invalid mint?)';
-  }
-}
+    renderWallets();
 
-/* try auto-reconnect if user already connected (Phantom autoprompt) */
-window.addEventListener('load', async ()=>{
-  // some wallets keep .isConnected
-  if(window.solana && window.solana.isPhantom && window.solana.isConnected){
-    try{ const r = await window.solana.connect({ onlyIfTrusted:true }); if(r && r.publicKey){ publicKey = r.publicKey; onConnect(); } }catch(e){}
-  }
-});
+    openWalletsBtn.onclick = ()=>{ modalBg.style.display='flex'; modalBg.setAttribute('aria-hidden','false'); }
+    closeModalBtn.onclick = ()=>{ modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); }
+    modalBg.addEventListener('click', (e)=>{ if(e.target===modalBg){ modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); } });
 
-</script>
-</body>
-</html><!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Scorpion Crypto — PRO</title>
-<meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution. Connect wallets, check tokenomics and roadmap."/>
-<link rel="icon" href="images/logo-scorpion.png" />
-<style>
-  :root{
-    --bg:#070705;
-    --gold:#d4af37;
-    --gold-2:#c9a63b;
-    --muted:#bdbdbd;
-    --card:#0b0b0b;
-    --glass: rgba(255,255,255,0.03);
-    --max:1100px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;
-    background:linear-gradient(180deg,#050505 0%, #0b0b0b 60%);
-    color:#fff;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  /* top nav */
-  nav{max-width:var(--max);margin:24px auto;display:flex;justify-content:center;gap:28px;padding:0 16px}
-  nav a{color:var(--gold);text-decoration:none;font-weight:700}
-
-  /* hero */
-  header.hero{
-    min-height:62vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px 16px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-inner{max-width:var(--max);margin:0 auto;padding:24px}
-  .logo{
-    width:170px;height:170px;border-radius:50%;
-    display:block;margin:0 auto 18px;
-    border:6px solid rgba(212,175,55,0.06);
-    box-shadow:0 24px 70px rgba(0,0,0,0.6), 0 0 60px rgba(212,175,55,0.08);
-    background: radial-gradient(circle at center, rgba(212,175,55,0.06) 0%, transparent 40%);
-  }
-  h1{color:var(--gold);font-size:2.8rem;margin:8px 0;text-transform:uppercase;letter-spacing:2px}
-  p.lead{color:var(--muted);max-width:780px;margin:8px auto 18px;font-size:1.02rem;line-height:1.6}
-
-  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-  .btn{padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;min-width:150px;text-align:center;display:inline-block}
-  .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#000;box-shadow:0 8px 30px rgba(212,175,55,0.16)}
-  .btn-ghost{background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--gold)}
-
-  main{max-width:var(--max);margin:36px auto;padding:0 16px}
-  .grid{display:grid;grid-template-columns:1fr;gap:28px}
-  @media(min-width:960px){ .grid{grid-template-columns:2fr 1fr} }
-
-  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); padding:20px; border-radius:14px}
-  h2{color:var(--gold);font-size:1.25rem;margin:0 0 12px;display:inline-block;border-bottom:2px solid rgba(212,175,55,0.08);padding-bottom:6px}
-  .muted{color:var(--muted)}
-
-  /* tokenomics table */
-  table{width:100%;border-collapse:collapse;margin-top:12px}
-  th,td{padding:12px;border:1px solid rgba(255,255,255,0.03);text-align:left}
-  th{background:#070707;color:var(--gold)}
-
-  /* wallets/exchanges grid */
-  .wallets-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  @media(min-width:700px){ .wallets-grid{grid-template-columns:repeat(3,1fr)} }
-  .wallet-card{background:#0a0a0a;border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;flex-direction:column;justify-content:center;min-height:110px}
-  .wallet-card img{width:68px;height:68px;object-fit:contain}
-  .wallet-name{color:var(--muted);margin-top:6px;font-weight:700}
-
-  /* connect demo */
-  .connect-box{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-  .small{font-size:0.95rem;color:var(--muted)}
-
-  footer{padding:36px 16px;text-align:center;color:#8b8b8b;border-top:1px solid rgba(255,255,255,0.02);margin-top:36px}
-
-  /* small */
-  .price{font-weight:800;color:var(--gold);font-size:1.3rem}
-
-  /* subtle glow for hero title */
-  h1.glow{ text-shadow: 0 6px 30px rgba(212,175,55,0.18) }
-
-</style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav role="navigation" aria-label="Main navigation">
-    <a href="#about">About</a>
-    <a href="#tokenomics">Tokenomics</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#wallets">Wallets</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Scorpion hero">
-    <div class="hero-inner">
-      <!-- main logo: place images/logo-scorpion.png in repo -->
-      <img class="logo" src="images/logo-scorpion.png" alt="Scorpion logo">
-      <h1 class="glow">Scorpion Crypto</h1>
-      <p class="lead">Power. Precision. Blockchain Evolution. Connect your wallet, explore tokenomics and roadmap — built for the community.</p>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
-        <a class="btn btn-ghost" href="#wallets">Connect Wallet</a>
-        <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn" target="_blank" rel="noopener noreferrer">Follow on X</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="grid">
-
-      <!-- LEFT: main content -->
-      <div>
-        <section id="about" class="card" aria-labelledby="about-title">
-          <h2 id="about-title">About Scorpion</h2>
-          <p class="muted">Scorpion Crypto is a next-generation blockchain token focused on security, fast execution and sustainable tokenomics. We design for long-term community alignment and real DeFi integrations.</p>
-        </section>
-
-        <section id="tokenomics" class="card" aria-labelledby="tok-title">
-          <h2 id="tok-title">Tokenomics</h2>
-          <p class="muted">Transparent distribution and vesting for long-term alignment.</p>
-          <table role="table" aria-label="Tokenomics table">
-            <thead><tr><th scope="col">Category</th><th scope="col">Allocation</th></tr></thead>
-            <tbody>
-              <tr><td>Community & Staking</td><td>40%</td></tr>
-              <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
-              <tr><td>Initial Liquidity</td><td>20%</td></tr>
-              <tr><td>Reserve & Development</td><td>15%</td></tr>
-            </tbody>
-          </table>
-          <p class="small muted" style="margin-top:12px">Total supply: <strong>1,000,000,000</strong> — details and vesting in the whitepaper.</p>
-        </section>
-
-        <section id="roadmap" class="card" aria-labelledby="roadmap-title">
-          <h2 id="roadmap-title">Roadmap</h2>
-          <div style="display:grid;gap:10px;margin-top:10px">
-            <div style="background:#080808;padding:12px;border-radius:8px">Q1 — Foundation, smart contract design, audit planning.</div>
-            <div style="background:#080808;padding:12px;border-radius:8px">Q2 — Token launch, liquidity, community programs.</div>
-            <div style="background:#080808;padding:12px;border-radius:8px">Q3 — Audits, exchange listings, DeFi integrations.</div>
-            <div style="background:#080808;padding:12px;border-radius:8px">Q4 — Governance, partnerships, platform scaling.</div>
-          </div>
-        </section>
-
-        <section id="faq" class="card" aria-labelledby="faq-title">
-          <h2 id="faq-title">FAQ</h2>
-          <div style="margin-top:8px">
-            <strong>How to buy?</strong>
-            <div class="muted">After listing, links and guides will be provided here.</div>
-          </div>
-          <div style="margin-top:12px">
-            <strong>Is there an audit?</strong>
-            <div class="muted">Audits planned prior to main listings.</div>
-          </div>
-        </section>
-      </div>
-
-      <!-- RIGHT: side / widgets -->
-      <aside>
-        <section class="card connect-box" aria-labelledby="live-title">
-          <h2 id="live-title">Live Price (demo)</h2>
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-            <div>
-              <div class="price" id="live-price">--</div>
-              <div id="price-change" class="small muted">--</div>
-            </div>
-            <div style="text-align:right">
-              <div class="muted small">Market Cap</div>
-              <div id="market-cap" class="small muted">--</div>
-            </div>
-          </div>
-          <p class="small muted" style="margin-top:8px">Demo prices from CoinGecko for now.</p>
-        </section>
-
-        <section class="card connect-box" aria-labelledby="connect-title" style="margin-top:18px">
-          <h2 id="connect-title">Wallet Connect (Demo)</h2>
-          <p class="muted small">We support Phantom (Solana), MetaMask and other wallet providers. This demo shows basic detection; integrate wallet SDKs for production.</p>
-
-          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-            <button class="btn btn-primary" id="btn-connect-phantom">Connect Phantom</button>
-            <button class="btn btn-ghost" id="btn-connect-metamask">Connect MetaMask</button>
-          </div>
-
-          <div id="wallet-status" style="margin-top:14px" class="small muted">No wallet connected.</div>
-        </section>
-      </aside>
-
-    </div>
-
-    <!-- WALLET / EXCHANGES SECTION -->
-    <section id="wallets" class="card" aria-labelledby="wallets-title" style="margin-top:28px">
-      <h2 id="wallets-title">Supported Wallets & Exchanges</h2>
-      <p class="muted">Connect and trade Scorpion Crypto on verified platforms. Click a card to open the exchange.</p>
-
-      <div class="wallets-grid" style="margin-top:18px">
-        <!-- each wallet card: ensure images/ files exist -->
-        <a class="wallet-card" href="https://www.binance.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-binance.png" alt="Binance logo">
-          <div class="wallet-name">Binance</div>
-        </a>
-
-        <a class="wallet-card" href="https://www.okx.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-okx.png" alt="OKX logo">
-          <div class="wallet-name">OKX</div>
-        </a>
-
-        <a class="wallet-card" href="https://www.mexc.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-mexc.png" alt="MEXC logo">
-          <div class="wallet-name">MEXC</div>
-        </a>
-
-        <a class="wallet-card" href="https://trustwallet.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-trustwallet.png" alt="Trust Wallet logo">
-          <div class="wallet-name">Trust Wallet</div>
-        </a>
-
-        <a class="wallet-card" href="https://onchain.example" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-onchain.png" alt="Onchain logo">
-          <div class="wallet-name">Onchain</div>
-        </a>
-
-        <a class="wallet-card" href="https://www.bybit.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-bybit.png" alt="Bybit logo">
-          <div class="wallet-name">Bybit</div>
-        </a>
-
-        <a class="wallet-card" href="https://www.gate.io" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-gateio.png" alt="Gate.io logo">
-          <div class="wallet-name">Gate.io</div>
-        </a>
-
-        <a class="wallet-card" href="https://www.kucoin.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-kucoin.png" alt="KuCoin logo">
-          <div class="wallet-name">KuCoin</div>
-        </a>
-
-        <a class="wallet-card" href="https://www.bitget.com" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-bitget.png" alt="Bitget logo">
-          <div class="wallet-name">Bitget</div>
-        </a>
-
-        <a class="wallet-card" href="https://metamask.io" target="_blank" rel="noopener noreferrer">
-          <img src="images/ex-metamask.png" alt="MetaMask logo">
-          <div class="wallet-name">MetaMask</div>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2025 Scorpion Crypto · Built for the community · <a href="#" style="color:var(--gold)">Privacy</a>
-  </footer>
-
-<script>
-/* ----------------------------
-  Demo: fetch price from CoinGecko
-  Replace 'bitcoin' with your token id
------------------------------*/
-async function fetchDemoPrice(){
-  try{
-    const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin');
-    const data = await res.json();
-    if(data && data[0]){
-      const price = data[0].current_price;
-      const change = data[0].price_change_percentage_24h;
-      const marketCap = data[0].market_cap;
-      document.getElementById('live-price').textContent = '$' + Number(price).toLocaleString();
-      const pc = document.getElementById('price-change');
-      pc.textContent = (change>0?'+':'') + change.toFixed(2) + '% (24h)';
-      pc.style.color = change>=0 ? '#22c55e' : '#ef4444';
-      document.getElementById('market-cap').textContent = '$' + Number(marketCap).toLocaleString();
+    // Demo connect implementations (best-effort)
+    async function connectPhantom(){
+      if(window.solana && window.solana.isPhantom){
+        try{ const r = await window.solana.connect(); alert('Connected Phantom: '+r.publicKey.toString()); modalBg.style.display='none'; }catch(e){ alert('Connect cancelled'); }
+      }else{ if(confirm('Phantom not detected. Install Phantom?')) window.open('https://phantom.app/','_blank'); }
     }
-  }catch(e){
-    console.error('price fetch error', e);
-  }
-}
-fetchDemoPrice();
-setInterval(fetchDemoPrice, 60*1000);
+    async function connectSolflare(){
+      if(window.solflare || (window.solana && window.solana.isSolflare)){
+        try{ const prov = window.solflare || window.solana; const r = await prov.connect(); alert('Connected: '+(r.publicKey?r.publicKey.toString():r)); modalBg.style.display='none'; }catch(e){ alert('Connect cancelled'); }
+      }else{ if(confirm('Solflare not detected. Open Solflare?')) window.open('https://solflare.com/','_blank'); }
+    }
+    async function connectOkx(){ if(window.okxwallet){ try{ const r = await window.okxwallet.request({ method:'solana_requestAccounts' }); alert('Connected OKX: '+r[0]); modalBg.style.display='none'; }catch(e){ alert('Cancelled'); } } else if(confirm('OKX wallet not detected. Visit OKX wallet?')) window.open('https://www.okx.com/','_blank'); }
+    async function connectBitget(){ if(window.bitget){ try{ const r = await window.bitget.connect(); alert('Connected Bitget'); modalBg.style.display='none'; }catch(e){ alert('Cancelled'); } } else alert('Bitget wallet not present in this browser'); }
+    async function connectBackpack(){ if(window.backpackSolana){ try{ const r = await window.backpackSolana.connect(); alert('Connected Backpack'); modalBg.style.display='none'; }catch(e){ alert('Cancelled'); } } else alert('Backpack not present'); }
+    async function connectMetaMask(){ if(typeof window.ethereum !== 'undefined'){ try{ const a = await window.ethereum.request({method:'eth_requestAccounts'}); alert('MetaMask account: '+a[0]); modalBg.style.display='none'; }catch(e){ alert('Cancelled'); } } else if(confirm('MetaMask not found. Install?')) window.open('https://metamask.io/','_blank'); }
 
-/* ----------------------------
-  Wallet connect demos
-  Phantom (Solana) detection & MetaMask detection
-  For production integrate @solana/wallet-adapter + web3modal or onchain SDKs
------------------------------*/
-
-const statusEl = document.getElementById('wallet-status');
-const btnPhantom = document.getElementById('btn-connect-phantom');
-const btnMM = document.getElementById('btn-connect-metamask');
-
-async function detectPhantom(){
-  // window.solana is injected by Phantom
-  if(window.solana && window.solana.isPhantom){
-    return true;
-  }
-  return false;
-}
-
-async function connectPhantomDemo(){
-  if(!await detectPhantom()){
-    statusEl.textContent = 'Phantom not found. Please install Phantom wallet on your device.';
-    return;
-  }
-  try{
-    const resp = await window.solana.connect(); // only works if Phantom is available and user accepts
-    statusEl.textContent = 'Connected Phantom: ' + (resp.publicKey ? resp.publicKey.toString().slice(0,6)+'...'+resp.publicKey.toString().slice(-4) : 'connected');
-  }catch(e){
-    statusEl.textContent = 'Phantom connection cancelled.';
-  }
-}
-
-async function detectMetaMask(){
-  return (typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask);
-}
-
-async function connectMMdemo(){
-  if(!await detectMetaMask()){
-    statusEl.textContent = 'MetaMask not found. Install MetaMask extension or mobile app.';
-    return;
-  }
-  try{
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    statusEl.textContent = 'MetaMask connected: ' + accounts[0].slice(0,6)+'...'+accounts[0].slice(-4);
-  }catch(e){
-    statusEl.textContent = 'MetaMask connection cancelled.';
-  }
-}
-
-btnPhantom.addEventListener('click', connectPhantomDemo);
-btnMM.addEventListener('click', connectMMdemo);
-
-/* ---------- Helpful: keyboard fallback for mobile browsers - optional ---------- */
-/* If logo images are missing, the grid still shows text. Make sure images are uploaded to /images/ */
-</script>
-
-</body>
+    // Accessibility: close modal with ESC
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') { modalBg.style.display='none'; modalBg.setAttribute('aria-hidden','true'); } });
+  </script>  <!-- Notes for deployment (do not remove):
+       1) Upload images into /images/ inside your repo: scorpion.png, scorpion-favicon.png and ex-*.png logos.
+       2) If you prefer linking raw GitHub images, replace src="images/..." with raw.githubusercontent.com links.
+       3) To add wallet SDKs use @solana/wallet-adapter and web3modal for production-grade integrations.
+  --></body>
 </html>
