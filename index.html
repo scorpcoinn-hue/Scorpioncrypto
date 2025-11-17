@@ -1,4 +1,213 @@
 <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scorpion Crypto</title>
+  <meta name="description" content="Scorpion Crypto — Power. Precision. Blockchain Evolution. Join our community and discover the tokenomics and roadmap.">
+  <link rel="icon" href="SmartSelect_20251028_161329_Grok.png">
+
+  <style>
+    :root{
+      --gold: #d4af37;
+      --gold-2: #c9a63b;
+      --muted: #bdbdbd;
+      --max-w: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#fff;
+      background:#000;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header / Hero */
+    header.hero{
+      min-height: 56vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:48px 20px;
+      background-image: url('header-bg.png'), linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95));
+      background-size: cover;
+      background-position: center;
+      position:relative;
+    }
+    /* fallback if header-bg.png missing - use subtle pattern via gradient overlay */
+    @supports (background-image: linear-gradient(red, blue)) {
+      header.hero { background-blend-mode: overlay; }
+    }
+
+    .hero-inner{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding: 40px 20px;
+    }
+    .logo {
+      display:block;
+      margin:0 auto 18px;
+      width:180px;
+      max-width:40%;
+      border-radius:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.06);
+      filter: drop-shadow(0 0 18px rgba(212,175,55,0.18));
+      animation: heroFade 900ms ease both;
+    }
+    @keyframes heroFade { from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:none} }
+
+    h1{
+      margin:0;
+      color:var(--gold);
+      font-size:2.25rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+    p.lead{
+      color:var(--muted);
+      margin:14px 0 18px;
+      font-size:1rem;
+    }
+    .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
+    .btn {
+      display:inline-block;
+      padding:11px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      min-width:160px;
+      text-align:center;
+    }
+    .btn-primary{
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
+      color:#000;
+      box-shadow: 0 8px 24px rgba(212,175,55,0.18);
+    }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(212,175,55,0.18);
+      color:var(--gold);
+    }
+
+    /* Main content */
+    main{ padding:48px 20px; max-width:var(--max-w); margin:0 auto; }
+    section{ margin-bottom:48px; }
+    h2{ color:var(--gold); font-size:1.4rem; margin-bottom:12px; display:inline-block; border-bottom:2px solid var(--gold); padding-bottom:6px; }
+    .muted{ color:var(--muted); line-height:1.6; }
+
+    /* Tokenomics table */
+    .tokenomics table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      background:transparent;
+    }
+    .tokenomics th, .tokenomics td{
+      padding:12px 10px;
+      border:1px solid rgba(212,175,55,0.12);
+      text-align:left;
+    }
+    .tokenomics th{ background:#070707; color:var(--gold); font-weight:600; }
+
+    /* Roadmap */
+    .roadmap .step{ padding:12px 14px; border-left:4px solid rgba(212,175,55,0.12); margin-bottom:12px; background:#040404; border-radius:6px; }
+
+    /* Community area */
+    .community{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center; margin-top:8px; }
+    .social {
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; background:rgba(212,175,55,0.12);
+      color: #000; text-decoration:none; font-weight:600;
+    }
+
+    footer{ padding:28px 20px; text-align:center; color:#8b8b8b; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.02); margin-top:30px; }
+
+    /* Responsive */
+    @media (min-width:900px){
+      .hero-inner{ padding: 80px 20px; }
+      h1{ font-size:3rem; }
+      .logo{ width:200px; max-width:240px; border-radius:20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Scorpion Crypto header">
+    <div class="hero-inner">
+      <img class="logo" src="SmartSelect_20251028_161329_Grok.png" alt="Scorpion Crypto logo">
+      <h1>Scorpion Crypto</h1>
+      <p class="lead">Power. Precision. Blockchain Evolution.</p>
+
+      <div class="cta-row" role="navigation" aria-label="Primary calls to action">
+        <a class="btn btn-primary" href="#tokenomics">View Tokenomics</a>
+        <a class="btn btn-ghost" href="https://x.com/Scorpioncoinn?t=BDFaC0jaAUU5wBr4Y-KBRg&s=09" target="_blank" rel="noopener noreferrer">Follow on X</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About Scorpion</h2>
+      <p class="muted">Scorpion Crypto is a forward-looking blockchain project focused on delivering speed, security and protocol-level transparency. Built for the community and engineered for resilience, Scorpion aims to provide sustainable tokenomics, seamless DeFi integrations and an ecosystem that scales worldwide.</p>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section id="tokenomics" class="tokenomics" aria-labelledby="tokenomics-title">
+      <h2 id="tokenomics-title">Tokenomics</h2>
+      <p class="muted">The token model is designed for long-term growth and fair distribution across the community, team, liquidity and development reserves.</p>
+
+      <table role="table" aria-label="Tokenomics table">
+        <thead>
+          <tr><th scope="col">Category</th><th scope="col">Allocation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Community & Staking</td><td>40%</td></tr>
+          <tr><td>Team & Partners (vested)</td><td>25%</td></tr>
+          <tr><td>Initial Liquidity</td><td>20%</td></tr>
+          <tr><td>Reserve & Development</td><td>15%</td></tr>
+        </tbody>
+      </table>
+
+      <p class="muted" style="margin-top:12px;">Total supply: 1,000,000,000 (1 billion). Further details, vesting schedule and governance parameters will be published in the whitepaper.</p>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="roadmap" aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">Roadmap</h2>
+      <div class="step"><strong>Q1:</strong> Project foundation, team assembly, whitepaper drafting.</div>
+      <div class="step"><strong>Q2:</strong> Token launch, initial liquidity, community growth.</div>
+      <div class="step"><strong>Q3:</strong> Integrations with DeFi platforms, security audits, listing strategy.</div>
+      <div class="step"><strong>Q4:</strong> Global partnerships, scaling the ecosystem, governance rollout.</div>
+    </section>
+
+    <!-- COMMUNITY / CONTACT -->
+    <section id="community" aria-labelledby="community-title">
+      <h2 id="community-title">Join the Community</h2>
+      <p class="muted">Connect with us for updates, airdrops and governance. Follow the official channel and join the discussion.</p>
+
+      <div class="community" role="group" aria-label="Community links">
+        <a class="social" href="https://x.com/Scorpioncoinn?t=BDFaC0jaAUU5wBr4Y-KBRg&s=09" target="_blank" rel="noopener noreferrer">
+          <!-- simple X icon inline SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right:6px"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9.02 9.02 0 0 1-2.84 1.08A4.52 4.52 0 0 0 12.41 5.5a12.84 12.84 0 0 1-9.3-4.7 4.48 4.48 0 0 0 1.4 6.02A4.48 4.48 0 0 1 2 6.9v.06A4.52 4.52 0 0 0 4.5 11.4a4.52 4.52 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.12A9.06 9.06 0 0 1 1 19.54 12.84 12.84 0 0 0 8.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18 0-.35-.01-.53A8.18 8.18 0 0 0 23 3z" fill="#000"/></svg>
+          Follow us on X
+        </a>
+
+        <!-- placeholder for future channels -->
+        <a class="social" href="#" onclick="alert('Telegram/Discord link coming soon');return false;">Join Discord (coming)</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Scorpion Crypto · Built for the community.
+  </footer>
+
+</body>
+</html><!doctype html>
 
 <html lang="en">
 <head>
